@@ -1,0 +1,189 @@
+.btn {
+  background: #e7e7e7;
+  background-image: -webkit-linear-gradient(top, #73675C, #40352C);
+  background-image: -moz-linear-gradient(top, #73675C, #40352C);
+  background-image: -ms-linear-gradient(top, #73675C, #40352C);
+  background-image: -o-linear-gradient(top, #73675C, #40352C);
+  background-image: linear-gradient(to bottom, #73675C, #40352C);
+  -webkit-border-radius: 28;
+  -moz-border-radius: 28;
+  border-radius: 28px;
+  font-family: Tahoma;
+  color: #ffffff;
+  font-size: 100%;
+  padding: 10px 20px 10px 20px;
+  display: inline-block
+}
+
+
+.btn:hover {
+  background: #555555;
+  background-image: -webkit-linear-gradient(top, #40352C, #40352C);
+  background-image: -moz-linear-gradient(top, #40352C, #40352C);
+  background-image: -ms-linear-gradient(top, #40352C, #40352C);
+  background-image: -o-linear-gradient(top, #40352C, #40352C);
+  background-image: linear-gradient(to bottom, #40352C, #40352C);
+  display: inline-block;
+}
+
+
+.blockquote {
+  padding: 3px 10px;
+  border: #555555 5px solid;
+  border-radius: 10px;
+  width   : 800px;
+  height  : 400px; 
+  margin: 20px auto;
+  background-color:rgba(232, 204, 169,0.7);
+}
+
+
+html {
+        background: url(file:///D:/Escritorio/Libreria%20Silvia/Fondos/6.jpg) no-repeat center center fixed;
+        -webkit-background-size: cover;
+-moz-background-size: cover;
+-o-background-size: cover;
+background-size: cover;
+}
+
+h1 {
+    color: #40352C;
+    font-family: Tahoma;
+    font-size:45px;
+    text-align: center;
+}
+
+h2 {
+    color: #000000;
+    font-family: Tahoma;
+    font-size:12px;
+
+    display: inline-block;
+}
+
+h3 {
+    color: #000000;
+    font-family: Tahoma;
+    font-size:12px;
+
+}
+
+
+
+table {     
+  font-family: "Tahoma";
+  font-size: 12px; 
+  text-align: left;    
+  border-collapse: collapse;
+  width: 500px;
+  border: #40352C 1px solid; 
+}
+
+th {     
+  font-size: 13px;     
+  font-weight: normal;     
+  padding: 8px;     
+  background: #e7e7e7;   
+  border-bottom: 1px solid #40352C; 
+  color: #000000;
+  border: #40352C 1px solid;  
+  font-weight: bold;
+  text-align: center; 
+
+}
+
+td {    
+  padding: 8px;     
+  background: #e7e7e7;     
+  border-bottom: 1px solid #000000;
+  color: #000000;     
+  border-bottom: 1px solid #000000;
+  border: #000000 1px solid;
+}
+
+.btn2 {
+  background: #777575;
+  -webkit-border-radius: 28;
+  -moz-border-radius: 28;
+  border-radius: 8px;
+  font-family: Tahoma;
+  color: #ffffff;
+  font-size: 100%;
+  padding: 8px 15px 8px 15px;
+  display: inline-block
+}
+
+
+.btn2:hover {
+  background: #555555;
+  display: inline-block;
+}
+
+.dropdownmenu ul, .dropdownmenu li {
+  margin: 0;
+  padding: 0;
+}
+.dropdownmenu ul {
+  background: gray;
+  list-style: none;
+  width: 100%;
+}
+.dropdownmenu li {
+  float: left;
+  position: relative;
+  width:auto;
+}
+.dropdownmenu a {
+  background: #40352C ;
+  color: #FFFFFF;
+  display: block;
+  font: bold 12px/20px sans-serif;
+  padding: 10px 52px;
+  text-align: center;
+  text-decoration: none;
+  -webkit-transition: all .25s ease;
+  -moz-transition: all .25s ease;
+  -ms-transition: all .25s ease;
+  -o-transition: all .25s ease;
+  transition: all .25s ease;
+}
+.dropdownmenu li:hover a {
+  background: #73675C;
+}
+#submenu {
+  left: 0;
+  opacity: 0;
+  position: absolute;
+  top: 35px;
+  visibility: hidden;
+  z-index: 1;
+}
+li:hover ul#submenu {
+  opacity: 1;
+  top: 40px;  /* adjust this as per top nav padding top & bottom comes */
+  visibility: visible;
+}
+#submenu li {
+  float: none;
+  width: 100%;
+}
+#submenu a:hover {
+  background: #DF4B05;
+}
+#submenu a {
+  background-color:#000000;
+}
+
+#header{
+  font-family: Tahoma;
+  font-size:60px;
+  text-align: center;
+  position: fixed;
+  top:0;
+  left: 0;
+  width:100%;
+  height:15%;
+  background-color:#40352C;
+  color:#FFFFFF;
+  padding:10px;
+}
