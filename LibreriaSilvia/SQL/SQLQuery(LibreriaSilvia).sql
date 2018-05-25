@@ -11,7 +11,7 @@ create table usuario
 	segundoApellido varchar(30) not null,
 	correo          varchar(30) not null,
 	tipo            char(1) not null,
-	contraseña      varchar(30) not null,
+	contraseï¿½a      varchar(30) not null,
     constraint pk_telefono_usuario  primary key (telefono),
 	constraint chk_telefono_usuario check (telefono like '[0-9][0-9][0-9][0-9]-[0-9][0-9][0-9][0-9]'),
 	constraint chk_correo_usuario   check (correo like '_%@_%._%'),
@@ -106,7 +106,7 @@ exec master.dbo.sp_addlinkedserver
 go
 
 --servidor de conexiones remotas segundo paso
--- la contraseña debe ser la que se ustiliza en cada maquina, en mi caso es esta
+-- la contraseï¿½a debe ser la que se ustiliza en cada maquina, en mi caso es esta
 exec master.dbo.sp_addlinkedsrvlogin
 	@rmtsrvname = N'localhost',
 	@rmtuser = N'sa',
@@ -117,21 +117,33 @@ go
 -----------------------------------------------------------------------------------------------------------------------------------
 
 create PROCEDURE registroClientes
-    @telefono		   varchar(9),
+   @telefono		   varchar(9),
     @nombre			   varchar(30),
 	@primerApellido    varchar(30),
 	@segundoApellido   varchar(30),
 	@correo            varchar(30),
-	@contraseña        varchar(30),
-	@respuesta         BIT OUTPUT
+	@contraseÃ±a        varchar(30),
+	@respuesta         BIT OUTPUT,
+	@mensaje           varchar(30) output
 AS
    begin
 		SET NOCOUNT ON;
 				BEGIN TRY
-					insert into [localhost].Central.dbo.usuario (telefono,nombre,primerApellido,segundoApellido,correo,tipo,contraseña) values(@telefono,@nombre,@primerApellido,@segundoApellido,@correo,'C',@contraseña);
-					insert into [localhost].Central.dbo.cliente (telefono,monto) values(@telefono,0);
-					SET @respuesta = 1
-					SELECT @respuesta
+					if not exists (select telefono from [localhost].Central.dbo.cliente where @telefono = telefono)
+						begin
+							insert into [localhost].Central.dbo.usuario (telefono,nombre,primerApellido,segundoApellido,correo,tipo,contraseÃ±a) values(@telefono,@nombre,@primerApellido,@segundoApellido,@correo,'C',@contraseÃ±a);
+							insert into [localhost].Central.dbo.cliente (telefono,monto) values(@telefono,0);
+							SET @respuesta = 1
+							SET @mensaje   = 'Usuario agregado exitosamente'
+							SELECT @respuesta,@mensaje
+						end
+					else
+						begin
+							SET @respuesta = 0
+							SET @mensaje   = 'Error usuario ya existente'
+							SELECT @respuesta,@mensaje
+						end
+
 				END TRY
 				BEGIN CATCH
 					SET @respuesta = 0
@@ -145,7 +157,7 @@ GO
 select * from [localhost].Central.dbo.usuario
 
 --ejemplo de query
-exec registroClientes '7227-9636','a','b','c','a@gmail.com','123456',0
+exec registroClientes '7227-9636','a','b','c','a@gmail.com','123456',0,''
 
 
 -----------------------------------------------------------------------------------------------------------------------------------
@@ -157,7 +169,8 @@ select * from [localhost].Central.dbo.vale
 create PROCEDURE activarVale
     @telefono		   varchar(9),
     @monto			   int,
-	@respuesta         BIT OUTPUT
+	@respuesta         BIT OUTPUT,
+	@mensaje           varchar(30) output
 AS
 Declare
    @fecha  datetime
@@ -166,10 +179,22 @@ Declare
 		SET NOCOUNT ON;
 				BEGIN TRY
 					set @fecha=GETDATE();
-					insert into [localhost].Central.dbo.vale (monto,telefono,fecha) values(@monto,@telefono,@fecha);
-					Update [localhost].Central.dbo.cliente  set monto=monto+@Monto where telefono=@telefono;
-					SET @respuesta = 1
-					SELECT @respuesta
+					if exists (select telefono from [localhost].Central.dbo.cliente where @telefono = telefono)
+						begin
+							insert into [localhost].Central.dbo.vale (monto,telefono,fecha) values(@monto,@telefono,@fecha);
+							Update [localhost].Central.dbo.cliente  set monto=monto+@Monto where telefono=@telefono;
+							SET @respuesta = 1
+							SET @mensaje   = 'Vale agregado exitosamente'
+							SELECT @respuesta,@mensaje
+						end
+					else
+						begin
+							SET @respuesta = 0
+							SET @mensaje   = 'Error usuario no encontrado'
+							SELECT @respuesta,@mensaje
+						end
+
+
 				END TRY
 				BEGIN CATCH
 					SET @respuesta = 0
@@ -203,7 +228,8 @@ create PROCEDURE realizarPedido
 	@pagina            varchar(30),
 	@montoDOC          int,
 	@documento         varchar(max),
-	@respuesta         BIT OUTPUT
+	@respuesta         BIT OUTPUT,
+	@mensaje           varchar(30) output
 AS
 Declare
    @montoDisponible int,
@@ -222,12 +248,12 @@ Declare
 											begin
 												set @resto = @montoDisponible-@montoDOC;
 
-												
+
 												  --verificamos que usuario y saldo sean suficientes(de atras)
 
 												  insert into solicitud(telefono,fecha,montoCompra,cantidad,color,estado,pagina) values(@telefono,@fecha,@montoDOC,@cantidad,@color,'T',@pagina);
 
-												  
+
 												  --buscamos la solicitud
 												  set @idSolicitud  = (select id from solicitud where telefono=@telefono and fecha=@fecha);
 
@@ -240,19 +266,26 @@ Declare
 
 												  ---actualizar monto usuario cntral
 												  Update [localhost].Central.dbo.cliente  set monto=@resto where telefono=@telefono;
-												  
+
 
 												  SET @respuesta = 1
-												  SELECT @respuesta
+												  SET @mensaje   = 'Pedido agregado exitosamente'
+											      SELECT @respuesta,@mensaje
 											end
 								else
-								   SET @respuesta = 0
-								   SELECT @respuesta
+								   begin
+									   SET @respuesta = 0
+									   SET @mensaje   = 'Error saldo insuficiente'
+									   SELECT @respuesta,@mensaje
+								   end
 
 						  end
 					else
-						SET @respuesta = 0
-						SELECT @respuesta
+						begin
+							SET @respuesta = 0
+							SET @mensaje   = 'Error usuario no encontrado'
+							SELECT @respuesta,@mensaje
+						end
 
 				END TRY
 				BEGIN CATCH
@@ -265,7 +298,8 @@ GO
 
 
 
-exec  realizarPedido '7227-9636',2,'B','1-5',700,'tarea1',0
+
+exec  realizarPedido '7225-9628',2,'B','1-5',500,'tarea1',0,''
 
 select * from [localhost].Central.dbo.cliente
 select * from [localhost].Central.dbo.solicitud

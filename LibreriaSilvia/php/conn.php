@@ -3,7 +3,15 @@
 // redireccion de funciones
 
 if ($_GET['func']=='registroClientes()'){
-    registroClientes($_GET['telefono'],$_GET['nombre'],$_GET['primerApellido'],$_GET['segundoApellido'],$_GET['correo']);
+    registroClientes($_GET['telefono'],$_GET['nombre'],$_GET['primerApellido'],$_GET['segundoApellido'],$_GET['correo'],$_GET['contraseña']);
+}
+
+if ($_GET['func']=='activarVale()'){
+    activarVale($_GET['telefono'],$_GET['monto']);
+}
+
+if ($_GET['func']=='realizarPedido()'){
+    realizarPedido($_GET['telefono'],$_GET['cantidad'],$_GET['color'],$_GET['pagina'],$_GET['montoDOC'],$_GET['documento']);
 }
 
 
@@ -22,24 +30,70 @@ function conexion(){
     }
 }
 
-function registroClientes($telefono,$nombre,$primerApellido,$seguncoApellido,$correo){
+function registroClientes($telefono,$nombre,$primerApellido,$seguncoApellido,$correo,$contraseña){
 
-    $conn = conexion();
-    $sql ="exec registroClientes @telefono='$telefono',@nombre='$nombre',@primerApellido='$primerApellido',@segundoApellido='$seguncoApellido',@correo='$correo',@contraseña='12365',@respuesta='0'";
-    $stmt = sqlsrv_query($conn, $sql);
-
+    $conn=conexion();
     $result = array();
 
-    do {
+    $sql ="exec registroClientes '$telefono','$nombre','$primerApellido','$seguncoApellido','$correo','$contraseña','0',''";
+    $stmt = sqlsrv_query($conn, $sql);
+
+    if($stmt === false) {
+        sqlsrv_close($conn);
+
+        $result[] = "Error: registro cliente";
+        echo json_encode($result);
+    }
+    else {
         while ($row = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC)){
             $result[] = $row;
         }
-    }   while (sqlsrv_next_result($stmt));
+        echo json_encode($result);
+        sqlsrv_close($conn);
+    }
+}
 
+function activarVale($telefono,$monto){
 
-    sqlsrv_free_stmt($stmt);
-    sqlsrv_close($conn);
+    $conn = conexion();
+    $sql ="exec activarVale '$telefono','$monto','0',''";
 
-    echo json_encode($result);
+    $stmt = sqlsrv_query( $conn, $sql );
+    if($stmt === false) {
+        sqlsrv_close($conn);
+
+        $result[] = "Error: activar vale";
+        echo json_encode($result);
+    }
+    else {
+        while ($row = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC)){
+            $result[] = $row;
+        }
+        echo json_encode($result);
+        sqlsrv_close($conn);
+    }
+}
+
+function realizarPedido($telefono,$cantidad,$color,$pagina,$montoDOC,$documento){
+
+    $conn = conexion();
+    $sql ="exec  realizarPedido '$telefono',$cantidad,'$color','$pagina','$montoDOC','$documento',0,''";
+
+    $stmt = sqlsrv_query( $conn, $sql );
+    if($stmt === false) {
+        sqlsrv_close($conn);
+
+        $result[] = "Error: realizar pedido";
+        echo json_encode($result);
+    }
+    else {
+
+        while ($row = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC)){
+                $result[] = $row;
+        }
+        echo json_encode($result);
+        sqlsrv_close($conn);
+    }
+
 }
 
