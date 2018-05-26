@@ -23,7 +23,38 @@
     <favorites_list name="LibreriaSilvia" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf>
+      <file leaf-file-name="login.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/vistas/login-registro/login.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="136">
+              <caret line="13" column="22" lean-forward="true" selection-start-line="13" selection-start-column="22" selection-end-line="13" selection-end-column="22" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="main.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/vistas/administrador/main.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="59">
+              <caret line="6" column="77" lean-forward="false" selection-start-line="6" selection-start-column="77" selection-end-line="6" selection-end-column="77" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SQLQuery(LibreriaSilvia).sql" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/php/SQL/SQLQuery(LibreriaSilvia).sql">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="382">
+              <caret line="308" column="0" lean-forward="true" selection-start-line="308" selection-start-column="0" selection-end-line="308" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -53,10 +84,21 @@
         <option value="$PROJECT_DIR$/administrador/graficos.html" />
         <option value="$PROJECT_DIR$/administrador/main.html" />
         <option value="$PROJECT_DIR$/administrador/registropedidos.html" />
+        <option value="$PROJECT_DIR$/php/preuba.php" />
         <option value="$PROJECT_DIR$/templates/preuba.html" />
-        <option value="$PROJECT_DIR$/js/methods.js" />
+        <option value="$PROJECT_DIR$/php/preubas.php" />
         <option value="$PROJECT_DIR$/SQL/SQLQuery(LibreriaSilvia).sql" />
+        <option value="$PROJECT_DIR$/php/prueba.php" />
         <option value="$PROJECT_DIR$/php/conn.php" />
+        <option value="$PROJECT_DIR$/main.html" />
+        <option value="$PROJECT_DIR$/Login.html" />
+        <option value="$PROJECT_DIR$/js/metodosCliente.js" />
+        <option value="$PROJECT_DIR$/js/metodosAdministrador.js" />
+        <option value="$PROJECT_DIR$/js/methods.js" />
+        <option value="$PROJECT_DIR$/js/metodosLoginRegistro.js" />
+        <option value="$PROJECT_DIR$/login-registro/registro.html" />
+        <option value="$PROJECT_DIR$/vistas/login-registro/registro.html" />
+        <option value="$PROJECT_DIR$/php/SQL/SQLQuery(LibreriaSilvia).sql" />
       </list>
     </option>
   </component>
@@ -115,17 +157,18 @@
     <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Usuario.ANGELO\Desktop\GitKraken\Libreria-Silvia\LibreriaSilvia\php" />
+      <recent name="C:\Users\Usuario.ANGELO\Desktop\GitKraken\Libreria-Silvia\LibreriaSilvia\css" />
+      <recent name="C:\Users\Usuario.ANGELO\Desktop\GitKraken\Libreria-Silvia\LibreriaSilvia\vistas" />
+      <recent name="C:\Users\Usuario.ANGELO\Desktop\GitKraken\Libreria-Silvia\LibreriaSilvia\vistas\cliente" />
+      <recent name="C:\Users\Usuario.ANGELO\Desktop\GitKraken\Libreria-Silvia\LibreriaSilvia\login-registro" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Usuario.ANGELO\Desktop\GitKraken\Libreria-Silvia\LibreriaSilvia\js" />
       <recent name="C:\Users\Usuario.ANGELO\Desktop\GitKraken\Libreria-Silvia\LibreriaSilvia" />
       <recent name="C:\Users\Usuario.ANGELO\Desktop\GitKraken\Libreria-Silvia\LibreriaSilvia\php" />
       <recent name="C:\Users\Usuario.ANGELO\Desktop\GitKraken\Libreria-Silvia\LibreriaSilvia\SQL" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\Usuario.ANGELO\Desktop\GitKraken\Libreria-Silvia\LibreriaSilvia\js" />
-      <recent name="C:\Users\Usuario.ANGELO\Desktop\GitKraken\Libreria-Silvia\LibreriaSilvia\css" />
-      <recent name="C:\Users\Usuario.ANGELO\Desktop\GitKraken\Libreria-Silvia\LibreriaSilvia\php" />
-      <recent name="C:\Users\Usuario.ANGELO\Desktop\GitKraken\Libreria-Silvia\LibreriaSilvia\templates" />
-      <recent name="C:\Users\Usuario.ANGELO\Desktop\GitKraken\Libreria-Silvia\LibreriaSilvia" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -148,6 +191,12 @@
       <method />
     </configuration>
     <configuration default="false" name="bandejaentrada.html" type="JavascriptDebugType" factoryName="JavaScript Debug" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/LibreriaSilvia/administrador/bandejaentrada.html">
+      <method />
+    </configuration>
+    <configuration default="false" name="preubas.php" type="PhpLocalRunConfigurationType" factoryName="PHP Console" temporary="true" path="$PROJECT_DIR$/php/preubas.php">
+      <method />
+    </configuration>
+    <configuration default="false" name="prueba.php" type="PhpLocalRunConfigurationType" factoryName="PHP Console" temporary="true" path="$PROJECT_DIR$/php/prueba.php">
       <method />
     </configuration>
     <configuration default="true" type="CodeceptionConfigurationType" factoryName="Codeception">
@@ -237,16 +286,20 @@
       <recursive>false</recursive>
       <method />
     </configuration>
-    <list size="3">
+    <list size="5">
       <item index="0" class="java.lang.String" itemvalue="JavaScript Debug.login.html" />
       <item index="1" class="java.lang.String" itemvalue="JavaScript Debug.preuba.html" />
       <item index="2" class="java.lang.String" itemvalue="JavaScript Debug.bandejaentrada.html" />
+      <item index="3" class="java.lang.String" itemvalue="PHP Script.preubas.php" />
+      <item index="4" class="java.lang.String" itemvalue="PHP Script.prueba.php" />
     </list>
     <recent_temporary>
-      <list size="3">
+      <list size="5">
         <item index="0" class="java.lang.String" itemvalue="JavaScript Debug.preuba.html" />
-        <item index="1" class="java.lang.String" itemvalue="JavaScript Debug.bandejaentrada.html" />
-        <item index="2" class="java.lang.String" itemvalue="JavaScript Debug.login.html" />
+        <item index="1" class="java.lang.String" itemvalue="PHP Script.prueba.php" />
+        <item index="2" class="java.lang.String" itemvalue="PHP Script.preubas.php" />
+        <item index="3" class="java.lang.String" itemvalue="JavaScript Debug.bandejaentrada.html" />
+        <item index="4" class="java.lang.String" itemvalue="JavaScript Debug.login.html" />
       </list>
     </recent_temporary>
   </component>
@@ -267,11 +320,12 @@
       <workItem from="1527268031236" duration="615000" />
       <workItem from="1527279426749" duration="1174000" />
       <workItem from="1527282803649" duration="6833000" />
+      <workItem from="1527296316242" duration="8967000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="14213000" />
+    <option name="totallyTimeSpent" value="23180000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -285,18 +339,18 @@
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14599092" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23146747" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289689" sideWeight="0.4969743" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="PHP-CGI Server" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.3289689" sideWeight="0.49394855" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289689" sideWeight="0.5060514" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289689" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289689" sideWeight="0.49394855" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289689" sideWeight="0.4969743" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -307,18 +361,18 @@
     <layout-to-restore>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289689" sideWeight="0.4969743" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="PHP-CGI Server" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.3289689" sideWeight="0.49394855" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="PHP-CGI Server" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289689" sideWeight="0.4969743" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289689" sideWeight="0.5030257" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289689" sideWeight="0.5060514" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289689" sideWeight="0.49394855" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289689" sideWeight="0.4969743" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21558245" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23146747" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289689" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -333,7 +387,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="2" />
+      <option name="time" value="5" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -342,15 +396,11 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
           <caret line="19" column="59" lean-forward="true" selection-start-line="19" selection-start-column="59" selection-end-line="19" selection-end-column="59" />
-          <folding>
-            <element signature="n#!!block;n#registroClientes#0" expanded="false" />
-            <element signature="n#!!block;n#activarVale#0" expanded="false" />
-            <element signature="n#!!block;n#realizarPedido#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/preuba.html">
+    <entry file="file://$PROJECT_DIR$/EndPoints/preuba.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
           <caret line="7" column="7" lean-forward="true" selection-start-line="7" selection-start-column="7" selection-end-line="7" selection-end-column="7" />
@@ -358,7 +408,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/SQL/SQLQuery(LibreriaSilvia).sql">
+    <entry file="file://$PROJECT_DIR$/php/SQL/SQLQuery(LibreriaSilvia).sql">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2499">
           <caret line="147" column="0" lean-forward="false" selection-start-line="147" selection-start-column="0" selection-end-line="147" selection-end-column="70" />
@@ -372,34 +422,42 @@
           <caret line="36" column="0" lean-forward="false" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
           <folding>
             <element signature="n#conexion#0;n#!!top" expanded="false" />
+            <element signature="n#conexionCentral#0;n#!!top" expanded="false" />
             <element signature="n#registroClientes#0;n#!!top" expanded="false" />
+            <element signature="n#activarVale#0;n#!!top" expanded="false" />
             <element signature="n#realizarPedido#0;n#!!top" expanded="false" />
+            <element signature="n#mostrarSolicitudes#0;n#!!top" expanded="false" />
+            <element signature="n#saldo#0;n#!!top" expanded="false" />
+            <element signature="n#login#0;n#!!top" expanded="false" />
+            <marker date="1527304936929" expanded="true" signature="3255:3413" ph="select s.id,... solicitud" />
+            <marker date="1527304936929" expanded="true" signature="3958:4237" ph="select c.mon... " />
+            <marker date="1527304936929" expanded="true" signature="4801:4934" ph="select telef... usuario" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/administrador/bandejaentrada.html">
+    <entry file="file://$PROJECT_DIR$/vistas/administrador/bandejaentrada.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
           <caret line="4" column="35" lean-forward="true" selection-start-line="4" selection-start-column="35" selection-end-line="4" selection-end-column="35" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/administrador/main.html">
+    <entry file="file://$PROJECT_DIR$/vistas/administrador/main.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="289">
           <caret line="17" column="46" lean-forward="true" selection-start-line="17" selection-start-column="46" selection-end-line="17" selection-end-column="46" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/cliente/main.html">
+    <entry file="file://$PROJECT_DIR$/vistas/login-registro/login.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/fondos/6.jpg">
+    <entry file="file://$PROJECT_DIR$/css/fondos/6.jpg">
       <provider selected="true" editor-type-id="images">
         <state />
       </provider>
@@ -410,8 +468,16 @@
           <caret line="5" column="119" lean-forward="false" selection-start-line="5" selection-start-column="119" selection-end-line="5" selection-end-column="119" />
           <folding>
             <element signature="n#conexion#0;n#!!top" expanded="false" />
+            <element signature="n#conexionCentral#0;n#!!top" expanded="false" />
             <element signature="n#registroClientes#0;n#!!top" expanded="false" />
+            <element signature="n#activarVale#0;n#!!top" expanded="false" />
             <element signature="n#realizarPedido#0;n#!!top" expanded="false" />
+            <element signature="n#mostrarSolicitudes#0;n#!!top" expanded="false" />
+            <element signature="n#saldo#0;n#!!top" expanded="false" />
+            <element signature="n#login#0;n#!!top" expanded="false" />
+            <marker date="1527304936929" expanded="true" signature="3255:3413" ph="select s.id,... solicitud" />
+            <marker date="1527304936929" expanded="true" signature="3958:4237" ph="select c.mon... " />
+            <marker date="1527304936929" expanded="true" signature="4801:4934" ph="select telef... usuario" />
           </folding>
         </state>
       </provider>
@@ -420,15 +486,11 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="374">
           <caret line="22" column="188" lean-forward="false" selection-start-line="22" selection-start-column="188" selection-end-line="22" selection-end-column="188" />
-          <folding>
-            <element signature="n#!!block;n#registroClientes#0" expanded="false" />
-            <element signature="n#!!block;n#activarVale#0" expanded="false" />
-            <element signature="n#!!block;n#realizarPedido#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/preuba.html">
+    <entry file="file://$PROJECT_DIR$/EndPoints/preuba.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
           <caret line="10" column="7" lean-forward="true" selection-start-line="10" selection-start-column="7" selection-end-line="10" selection-end-column="7" />
@@ -460,117 +522,174 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/fondos/6.jpg">
+    <entry file="file://$PROJECT_DIR$/css/fondos/6.jpg">
       <provider selected="true" editor-type-id="images">
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/administrador/bandejaentrada.html">
+    <entry file="file://$PROJECT_DIR$/vistas/administrador/bandejaentrada.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
           <caret line="9" column="6" lean-forward="true" selection-start-line="9" selection-start-column="6" selection-end-line="9" selection-end-column="6" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/administrador/main.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="59">
-          <caret line="6" column="74" lean-forward="false" selection-start-line="6" selection-start-column="74" selection-end-line="6" selection-end-column="74" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cliente/main.html">
+    <entry file="file://$PROJECT_DIR$/vistas/cliente/pedido.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/cliente/pedido.html">
+    <entry file="file://$PROJECT_DIR$/vistas/cliente/saldo.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/cliente/registro.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cliente/saldo.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/administrador/registropedidos.html">
+    <entry file="file://$PROJECT_DIR$/vistas/administrador/registropedidos.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
           <caret line="6" column="74" lean-forward="false" selection-start-line="6" selection-start-column="74" selection-end-line="6" selection-end-column="74" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/administrador/creacionvales.html">
+    <entry file="file://$PROJECT_DIR$/vistas/administrador/creacionvales.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
           <caret line="6" column="74" lean-forward="false" selection-start-line="6" selection-start-column="74" selection-end-line="6" selection-end-column="74" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/administrador/graficos.html">
+    <entry file="file://$PROJECT_DIR$/vistas/administrador/graficos.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
           <caret line="6" column="74" lean-forward="false" selection-start-line="6" selection-start-column="74" selection-end-line="6" selection-end-column="74" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/metodosCliente.js">
+    <entry file="file://$PROJECT_DIR$/php/preuba.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="25" column="1" lean-forward="true" selection-start-line="25" selection-start-column="1" selection-end-line="25" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/php/preubas.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="41" selection-end-column="1" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/methods.js">
+    <entry file="file://$PROJECT_DIR$/EndPoints/preuba.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="51" column="26" lean-forward="false" selection-start-line="51" selection-start-column="26" selection-end-line="51" selection-end-column="26" />
-          <folding>
-            <element signature="n#!!block;n#registroClientes#0" expanded="false" />
-            <element signature="n#!!block;n#activarVale#0" expanded="false" />
-            <element signature="n#!!block;n#realizarPedido#0" expanded="false" />
-          </folding>
+        <state relative-caret-position="153">
+          <caret line="9" column="42" lean-forward="true" selection-start-line="9" selection-start-column="42" selection-end-line="9" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/php/prueba.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="14" column="10" lean-forward="false" selection-start-line="14" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/php/conn.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="134">
-          <caret line="58" column="55" lean-forward="false" selection-start-line="58" selection-start-column="55" selection-end-line="58" selection-end-column="55" />
+        <state relative-caret-position="526">
+          <caret line="201" column="0" lean-forward="true" selection-start-line="201" selection-start-column="0" selection-end-line="201" selection-end-column="0" />
           <folding>
             <element signature="n#conexion#0;n#!!top" expanded="false" />
+            <element signature="n#conexionCentral#0;n#!!top" expanded="false" />
             <element signature="n#registroClientes#0;n#!!top" expanded="false" />
+            <element signature="n#activarVale#0;n#!!top" expanded="false" />
             <element signature="n#realizarPedido#0;n#!!top" expanded="false" />
+            <element signature="n#mostrarSolicitudes#0;n#!!top" expanded="false" />
+            <element signature="n#saldo#0;n#!!top" expanded="false" />
+            <element signature="n#login#0;n#!!top" expanded="false" />
+            <marker date="1527304936929" expanded="true" signature="3255:3413" ph="select s.id,... solicitud" />
+            <marker date="1527304936929" expanded="true" signature="3958:4237" ph="select c.mon... " />
+            <marker date="1527304936929" expanded="true" signature="4801:4934" ph="select telef... usuario" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/preuba.html">
+    <entry file="file://$PROJECT_DIR$/js/methods.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="0" lean-forward="true" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+        <state relative-caret-position="255">
+          <caret line="109" column="0" lean-forward="false" selection-start-line="109" selection-start-column="0" selection-end-line="109" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/SQL/SQLQuery(LibreriaSilvia).sql">
+    <entry file="file://$PROJECT_DIR$/vistas/login-registro/registro.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-199">
-          <caret line="174" column="7" lean-forward="true" selection-start-line="174" selection-start-column="7" selection-end-line="174" selection-end-column="7" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/metodosAdministrador.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="35" column="1" lean-forward="false" selection-start-line="35" selection-start-column="1" selection-end-line="35" selection-end-column="1" />
+          <folding>
+            <element signature="n#!!block;n#activarVale#0" expanded="false" />
+            <element signature="n#!!block;n#mostrarSolicitudes#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/metodosCliente.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="18" column="22" lean-forward="true" selection-start-line="18" selection-start-column="22" selection-end-line="18" selection-end-column="22" />
+          <folding>
+            <element signature="n#!!block;n#saldo#0" expanded="false" />
+            <element signature="n#!!block;n#realizarPedido#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/metodosLoginRegistro.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="n#!!block;n#registroClientes#0" expanded="false" />
+            <element signature="n#!!block;n#login#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vistas/login-registro/login.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="13" column="22" lean-forward="true" selection-start-line="13" selection-start-column="22" selection-end-line="13" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vistas/administrador/main.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="59">
+          <caret line="6" column="77" lean-forward="false" selection-start-line="6" selection-start-column="77" selection-end-line="6" selection-end-column="77" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/php/SQL/SQLQuery(LibreriaSilvia).sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="382">
+          <caret line="308" column="0" lean-forward="true" selection-start-line="308" selection-start-column="0" selection-end-line="308" selection-end-column="0" />
           <folding />
         </state>
       </provider>

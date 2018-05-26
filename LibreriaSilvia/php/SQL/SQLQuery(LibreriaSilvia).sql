@@ -131,7 +131,7 @@ AS
 				BEGIN TRY
 					if not exists (select telefono from [localhost].Central.dbo.cliente where @telefono = telefono)
 						begin
-							insert into [localhost].Central.dbo.usuario (telefono,nombre,primerApellido,segundoApellido,correo,tipo,contraseña) values(@telefono,@nombre,@primerApellido,@segundoApellido,@correo,'C',@contraseña);
+							insert into [localhost].Central.dbo.usuario (telefono,nombre,primerApellido,segundoApellido,correo,tipo,pass) values(@telefono,@nombre,@primerApellido,@segundoApellido,@correo,'C',@contraseña);
 							insert into [localhost].Central.dbo.cliente (telefono,monto) values(@telefono,0);
 							SET @respuesta = 1
 							SET @mensaje   = 'Usuario agregado exitosamente'
@@ -151,7 +151,6 @@ AS
 					END CATCH
 		SET NOCOUNT OFF;
    end
-GO
 
 --consulta al servidor
 select * from [localhost].Central.dbo.usuario
@@ -305,4 +304,7 @@ select * from [localhost].Central.dbo.cliente
 select * from [localhost].Central.dbo.solicitud
 
 select * from solicitud
+
+
+
 
