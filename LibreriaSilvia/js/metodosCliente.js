@@ -11,7 +11,7 @@ function saldo() {
             else{console.log(this.statusText, this.status)}
         }
     };
-    xhttp.open("GET", "../php/conn.php?func=saldo()&telefono="+telefono, true);
+    xhttp.open("GET", "../../php/conn.php?func=saldo()&telefono="+telefono, true);
     xhttp.send();
 
 }
@@ -35,7 +35,7 @@ function realizarPedido() {
             else{console.log(this.statusText, this.status)}
         }
     };
-    xhttp.open("GET", "../php/conn.php?func=realizarPedido()&telefono="+telefono+"&cantidad="+cantidad.toString()+"&color="+color+"&pagina="+pagina+"&montoDOC="+montoDOC.toString()+"&documento="+documento, true);
+    xhttp.open("GET", "../../php/conn.php?func=realizarPedido()&telefono="+telefono+"&cantidad="+cantidad.toString()+"&color="+color+"&pagina="+pagina+"&montoDOC="+montoDOC.toString()+"&documento="+documento, true);
     xhttp.send();
 
 }

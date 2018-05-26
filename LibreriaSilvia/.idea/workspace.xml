@@ -24,32 +24,24 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="login.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="login.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/vistas/login-registro/login.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="13" column="22" lean-forward="true" selection-start-line="13" selection-start-column="22" selection-end-line="13" selection-end-column="22" />
+            <state relative-caret-position="85">
+              <caret line="5" column="74" lean-forward="false" selection-start-line="5" selection-start-column="74" selection-end-line="5" selection-end-column="74" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="main.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/vistas/administrador/main.html">
+      <file leaf-file-name="metodosLoginRegistro.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/metodosLoginRegistro.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="59">
-              <caret line="6" column="77" lean-forward="false" selection-start-line="6" selection-start-column="77" selection-end-line="6" selection-end-column="77" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SQLQuery(LibreriaSilvia).sql" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/php/SQL/SQLQuery(LibreriaSilvia).sql">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="382">
-              <caret line="308" column="0" lean-forward="true" selection-start-line="308" selection-start-column="0" selection-end-line="308" selection-end-column="0" />
-              <folding />
+            <state relative-caret-position="110">
+              <caret line="40" column="43" lean-forward="true" selection-start-line="40" selection-start-column="43" selection-end-line="40" selection-end-column="43" />
+              <folding>
+                <element signature="n#!!block;n#registroClientes#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -92,13 +84,14 @@
         <option value="$PROJECT_DIR$/php/conn.php" />
         <option value="$PROJECT_DIR$/main.html" />
         <option value="$PROJECT_DIR$/Login.html" />
-        <option value="$PROJECT_DIR$/js/metodosCliente.js" />
-        <option value="$PROJECT_DIR$/js/metodosAdministrador.js" />
         <option value="$PROJECT_DIR$/js/methods.js" />
-        <option value="$PROJECT_DIR$/js/metodosLoginRegistro.js" />
         <option value="$PROJECT_DIR$/login-registro/registro.html" />
         <option value="$PROJECT_DIR$/vistas/login-registro/registro.html" />
         <option value="$PROJECT_DIR$/php/SQL/SQLQuery(LibreriaSilvia).sql" />
+        <option value="$PROJECT_DIR$/js/metodosCliente.js" />
+        <option value="$PROJECT_DIR$/js/metodosAdministrador.js" />
+        <option value="$PROJECT_DIR$/vistas/login-registro/login.html" />
+        <option value="$PROJECT_DIR$/js/metodosLoginRegistro.js" />
       </list>
     </option>
   </component>
@@ -183,10 +176,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JavaScript Debug.preuba.html">
-    <configuration default="false" name="login.html" type="JavascriptDebugType" factoryName="JavaScript Debug" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/LibreriaSilvia/templates/login.html">
-      <method />
-    </configuration>
+  <component name="RunManager" selected="JavaScript Debug.login.html (1)">
     <configuration default="false" name="preuba.html" type="JavascriptDebugType" factoryName="JavaScript Debug" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/LibreriaSilvia/templates/preuba.html">
       <method />
     </configuration>
@@ -197,6 +187,9 @@
       <method />
     </configuration>
     <configuration default="false" name="prueba.php" type="PhpLocalRunConfigurationType" factoryName="PHP Console" temporary="true" path="$PROJECT_DIR$/php/prueba.php">
+      <method />
+    </configuration>
+    <configuration default="false" name="login.html (1)" type="JavascriptDebugType" factoryName="JavaScript Debug" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/LibreriaSilvia/vistas/login-registro/login.html">
       <method />
     </configuration>
     <configuration default="true" type="CodeceptionConfigurationType" factoryName="Codeception">
@@ -287,19 +280,19 @@
       <method />
     </configuration>
     <list size="5">
-      <item index="0" class="java.lang.String" itemvalue="JavaScript Debug.login.html" />
-      <item index="1" class="java.lang.String" itemvalue="JavaScript Debug.preuba.html" />
-      <item index="2" class="java.lang.String" itemvalue="JavaScript Debug.bandejaentrada.html" />
-      <item index="3" class="java.lang.String" itemvalue="PHP Script.preubas.php" />
-      <item index="4" class="java.lang.String" itemvalue="PHP Script.prueba.php" />
+      <item index="0" class="java.lang.String" itemvalue="JavaScript Debug.preuba.html" />
+      <item index="1" class="java.lang.String" itemvalue="JavaScript Debug.bandejaentrada.html" />
+      <item index="2" class="java.lang.String" itemvalue="PHP Script.preubas.php" />
+      <item index="3" class="java.lang.String" itemvalue="PHP Script.prueba.php" />
+      <item index="4" class="java.lang.String" itemvalue="JavaScript Debug.login.html (1)" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="JavaScript Debug.preuba.html" />
-        <item index="1" class="java.lang.String" itemvalue="PHP Script.prueba.php" />
-        <item index="2" class="java.lang.String" itemvalue="PHP Script.preubas.php" />
-        <item index="3" class="java.lang.String" itemvalue="JavaScript Debug.bandejaentrada.html" />
-        <item index="4" class="java.lang.String" itemvalue="JavaScript Debug.login.html" />
+        <item index="0" class="java.lang.String" itemvalue="JavaScript Debug.login.html (1)" />
+        <item index="1" class="java.lang.String" itemvalue="JavaScript Debug.preuba.html" />
+        <item index="2" class="java.lang.String" itemvalue="PHP Script.prueba.php" />
+        <item index="3" class="java.lang.String" itemvalue="PHP Script.preubas.php" />
+        <item index="4" class="java.lang.String" itemvalue="JavaScript Debug.bandejaentrada.html" />
       </list>
     </recent_temporary>
   </component>
@@ -320,12 +313,12 @@
       <workItem from="1527268031236" duration="615000" />
       <workItem from="1527279426749" duration="1174000" />
       <workItem from="1527282803649" duration="6833000" />
-      <workItem from="1527296316242" duration="8967000" />
+      <workItem from="1527296316242" duration="10888000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="23180000" />
+    <option name="totallyTimeSpent" value="25101000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -338,8 +331,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23146747" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23146747" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289689" sideWeight="0.4969743" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="PHP-CGI Server" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.3289689" sideWeight="0.49394855" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289689" sideWeight="0.5060514" order="7" side_tool="true" content_ui="tabs" />
@@ -637,43 +631,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/metodosAdministrador.js">
+    <entry file="file://$PROJECT_DIR$/php/SQL/SQLQuery(LibreriaSilvia).sql">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="35" column="1" lean-forward="false" selection-start-line="35" selection-start-column="1" selection-end-line="35" selection-end-column="1" />
-          <folding>
-            <element signature="n#!!block;n#activarVale#0" expanded="false" />
-            <element signature="n#!!block;n#mostrarSolicitudes#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/metodosCliente.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="18" column="22" lean-forward="true" selection-start-line="18" selection-start-column="22" selection-end-line="18" selection-end-column="22" />
-          <folding>
-            <element signature="n#!!block;n#saldo#0" expanded="false" />
-            <element signature="n#!!block;n#realizarPedido#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/metodosLoginRegistro.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="n#!!block;n#registroClientes#0" expanded="false" />
-            <element signature="n#!!block;n#login#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vistas/login-registro/login.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="13" column="22" lean-forward="true" selection-start-line="13" selection-start-column="22" selection-end-line="13" selection-end-column="22" />
+        <state relative-caret-position="314">
+          <caret line="304" column="0" lean-forward="true" selection-start-line="304" selection-start-column="0" selection-end-line="304" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -686,10 +647,41 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/php/SQL/SQLQuery(LibreriaSilvia).sql">
+    <entry file="file://$PROJECT_DIR$/js/metodosCliente.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="382">
-          <caret line="308" column="0" lean-forward="true" selection-start-line="308" selection-start-column="0" selection-end-line="308" selection-end-column="0" />
+        <state relative-caret-position="357">
+          <caret line="37" column="29" lean-forward="false" selection-start-line="37" selection-start-column="29" selection-end-line="37" selection-end-column="29" />
+          <folding>
+            <element signature="n#!!block;n#saldo#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/metodosAdministrador.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="20" column="30" lean-forward="false" selection-start-line="20" selection-start-column="30" selection-end-line="20" selection-end-column="30" />
+          <folding>
+            <element signature="n#!!block;n#activarVale#0" expanded="false" />
+            <element signature="n#!!block;n#mostrarSolicitudes#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/metodosLoginRegistro.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="110">
+          <caret line="40" column="43" lean-forward="true" selection-start-line="40" selection-start-column="43" selection-end-line="40" selection-end-column="43" />
+          <folding>
+            <element signature="n#!!block;n#registroClientes#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vistas/login-registro/login.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="74" lean-forward="false" selection-start-line="5" selection-start-column="74" selection-end-line="5" selection-end-column="74" />
           <folding />
         </state>
       </provider>

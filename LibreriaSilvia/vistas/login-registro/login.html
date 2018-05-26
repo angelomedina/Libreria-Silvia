@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Librería Silvia </title>
-    <script type="text/javascript" src="../../js/metodosCliente.js"></script>
+    <script type="text/javascript" src="../../js/metodosLoginRegistro.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <link  rel="stylesheet" href="../../css/stylesCliente.css">
 </head>
 
@@ -17,14 +18,14 @@
             <div class="card">
                 <div class="card-body"><br><br><br>
                         <h2 style="margin-left: 35%">Usuario
-                            <input type="text" id="usuario"><br>
+                            <input type="text" id="usuario_login"><br>
                         </h2>
                         <h2 style="margin-left: 32%; ">Contraseña
-                            <input type="text" id="contraseña"><br><br><br><br>
+                            <input type="text" id="contraseña_login"><br><br><br><br>
                         </h2>
 
                         <div style="text-align: center" class="btn-group">
-                            <a href="../cliente/pedido.html" class="btn">Ingresar</a>
+                            <a class="btn" onclick="login()">Ingresar</a>
                             <a href="registro.html" class="btn">Registrar</a><br><br>
                         </div>
                     </div>

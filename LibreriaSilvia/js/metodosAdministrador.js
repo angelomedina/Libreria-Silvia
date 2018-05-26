@@ -13,7 +13,7 @@ function activarVale() {
             else{console.log(this.statusText, this.status)}
         }
     };
-    xhttp.open("GET", "../php/conn.php?func=activarVale()&telefono="+telefono+"&monto="+monto.toString(), true);
+    xhttp.open("GET", "../../php/conn.php?func=activarVale()&telefono="+telefono+"&monto="+monto.toString(), true);
     xhttp.send();
 
 }
@@ -30,7 +30,7 @@ function mostrarSolicitudes() {
             else{console.log(this.statusText, this.status)}
         }
     };
-    xhttp.open("GET", "../php/conn.php?func=mostrarSolicitudes()", true);
+    xhttp.open("GET", "../../php/conn.php?func=mostrarSolicitudes()", true);
     xhttp.send();
 
 }
