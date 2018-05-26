@@ -12,9 +12,7 @@
   color: #ffffff;
   font-size: 100%;
   padding: 10px 20px 10px 20px;
-  display: inline-block
 }
-
 
 .btn:hover {
   background: #555555;
@@ -23,7 +21,7 @@
   background-image: -ms-linear-gradient(top, #40352C, #40352C);
   background-image: -o-linear-gradient(top, #40352C, #40352C);
   background-image: linear-gradient(to bottom, #40352C, #40352C);
-  display: inline-block;
+  
 }
 
 
@@ -34,6 +32,7 @@
   height  : 400px; 
   margin: 20px auto;
   background-color:rgba(232, 204, 169,0.7);
+  position:relative;
 }
 
 h1 {
@@ -63,18 +62,6 @@ h3 {
     font-size:12px;
 }
 
-html {
-        background: url(file:///D:/Escritorio/Libreria%20Silvia/Fondos/6.jpg) no-repeat center center fixed;
-        -webkit-background-size: cover;
--moz-background-size: cover;
--o-background-size: cover;
-background-size: cover;
-}
-
-/*#page {
-    margin:0px auto;
-    width:800px;
-}*/
 
 #header{
   font-family: Tahoma;
@@ -89,4 +76,6 @@ background-size: cover;
   color:#FFFFFF;
   padding:10px;
 }
+
+
 
