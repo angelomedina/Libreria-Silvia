@@ -32,7 +32,7 @@
   border: #555555 5px solid;
   border-radius: 10px;
   width   : 800px;
-  height  : 400px; 
+  height  : 450px; 
   margin: 20px auto;
   background-color:rgba(232, 204, 169,0.7);
   position:relative;
@@ -95,7 +95,7 @@ td {
 }
 
 .btn2 {
-  background: #777575;
+  background: #40352C;
   -webkit-border-radius: 28;
   -moz-border-radius: 28;
   border-radius: 8px;
