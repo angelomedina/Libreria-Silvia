@@ -25,9 +25,10 @@ function registroClientes() {
 
 function login() {
 
-
     var telefono  = document.getElementById('usuario_login').value.toString();
     var contraseña = document.getElementById('contraseña_login').value.toString();
+
+    var ptelefono="";
 
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function () {
@@ -36,13 +37,31 @@ function login() {
             if(this.statusText== "OK" && this.status == 200) {
 
                 if(this.response != '[]') {
-                    console.log(this.response);
-                    swal({
-                        title: "Good job!",
-                        text: "You clicked the button!",
-                        icon: "success",
-                        button: "Aww yiss!",
-                    });
+
+                    var json = this.response;
+                    var arr = JSON.parse(json);
+
+                    for (var i = 0; i < arr.length; i++){
+
+                        var obj = arr[i];
+                        for (var key in obj){
+
+                            var value = obj[key];
+
+                            if(key.toString() == 'telefono'){ ptelefono=value.toString()}
+
+                            if(key.toString() == 'tipo'){
+
+                                if(value.toString() == 'C') {
+                                    //cliente
+                                    siguienteVentana(ptelefono,'C');
+                                }else{
+                                    //admi
+                                    siguienteVentana(ptelefono,'A');
+                                }
+                            }
+                        }
+                    }
                 }else{
                     swal({
                         title: "Are you sure?",
@@ -60,4 +79,19 @@ function login() {
     };
     xhttp.open("GET", "../../php/conn.php?func=login()&telefono="+telefono+"&contraseña="+contraseña, true);
     xhttp.send();
+}
+
+function siguienteVentana(json, tipo) {
+
+    if(tipo == 'C'){
+        swal("Good job!", "You clicked the button!", "success")
+            .then((value) => {
+                document.location.href = "../../vistas/cliente/pedido.html?json=" + json;
+            });
+    }else{
+        swal("Good job!", "You clicked the button!", "success")
+            .then((value) => {
+                document.location.href = "../../vistas/administrador/main.html?json=" + json;
+            });
+    }
 }

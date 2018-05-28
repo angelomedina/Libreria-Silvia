@@ -210,7 +210,7 @@ select * from [localhost].Central.dbo.cliente
 
 
 --ejemplo de query
-exec activarVale '7227-9636',1000,0
+exec activarVale '7227-9636',1000,0,''
 
 
 

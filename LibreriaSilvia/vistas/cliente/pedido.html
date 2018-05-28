@@ -5,6 +5,8 @@
     <title>Librería Silvia </title>
 
     <script type="text/javascript" src="../../js/metodosCliente.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <link  rel="stylesheet" href="../../css/stylesCliente.css">
 </head>
 <body background="../../css/fondos/6.jpg" style="background-repeat:no-repeat;background-position: 0px 115px;background-size: 100% 92%">
@@ -19,8 +21,8 @@
                 <div class="card-body">               
                         <h2 style="margin-left: 5%; ">Color</h2>
                         <h2>                         
-                            <input type="radio" class = "rb" name="color" value="si" checked> Si
-                            <input type="radio" class = "rb" name="color" value="no"> No
+                            <input type="radio" class = "rb" name="color" value="B" checked> Si
+                            <input type="radio" class = "rb" name="color" value="N"> No
                         </h2>
                         <form id="myForm">
                             <h2 style="margin-left: 5%; ">Ingrese el documento</h2>
@@ -31,17 +33,16 @@
                             <h2 style="margin-left: 12%; ">Página inicio</h2>
                                 <input type="text" id="paginaInicio">
                             <h2 style="margin-left: 4%; ">Página final</h2>
-                                <input type="text" id="paginaFinal"><br><br>
-                            <h2 style="margin-left: 15%; ">Teléfono</h2>
-                            <input type="text" id="telefono">
-                           <a style="margin-left: 3%;" href="saldo.html" class="btn">Verificar Saldo</a>
-                             </form>
+                                <input type="text" id="paginaFinal"><br><br><br>
+                         </form>
                         </div>
 
-                        <br><br><br><a style="margin-left: 35%; " class="btn">Enviar</a>
-                        <a style="margin-left: 3%;" Limpiar Focus" 
-                            onclick="myFunction()" class="btn">Cancelar</a>
-                    </div>
+                        <br><br><br>
+                        <a style="margin-left: 28%; "  onclick="formularioPedido()" class="btn">Enviar</a>
+                        <a style="margin-left: 3%;" Limpiar Focus onclick="myFunction()" class="btn">Cancelar</a>
+                        <a style="margin-left: 3%;" onclick="sigVentanaSaldo()" class="btn">Verificar Saldo</a>
+
+            </div>
             </div>
         </div>
     </div>
