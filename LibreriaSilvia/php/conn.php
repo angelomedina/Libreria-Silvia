@@ -24,6 +24,11 @@ if ($_GET['func']=='login()'){
     login($_GET['telefono'],$_GET['contraseña']);
 }
 
+if ($_GET['func']=='infoUsuario()'){
+    infoUsuario($_GET['telefono']);
+}
+
+
 function conexion(){
     $serverName = "localhost\sqlexpress,1433";
     $connectionInfo = array( "Database"=>"Nodo", "UID"=>"sa", "PWD"=>"deathnote");
@@ -199,3 +204,28 @@ function login($telefono,$contraseña){
     }
 }
 
+function infoUsuario($telefono){
+
+    $conn = conexion();
+    $result = array();
+
+    $sql = "select correo,nombre from [localhost].Central.dbo.usuario where telefono = '$telefono'";
+    $stmt = sqlsrv_query( $conn, $sql );
+
+    if($stmt === false) {
+        sqlsrv_close($conn);
+
+        $result[] = "Error: mostrar solicitud";
+        echo json_encode($result);
+    }
+    else {
+
+        do {
+            while ($row = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC)){
+                $result[] = $row;
+            }
+        }   while (sqlsrv_next_result($stmt));
+        sqlsrv_close($conn);
+        echo json_encode($result);
+    }
+}

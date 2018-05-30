@@ -1,4 +1,6 @@
 var telefono = "";
+var nombre = "";
+var correo = "";
 
 function getParameterByName(name) {
     name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
@@ -10,6 +12,7 @@ function getParameterByName(name) {
 function obtenerParametros() {
     var json = getParameterByName('json');
     telefono=json;
+    infoUsuario(telefono);
 }
 
 function sigVentanaSaldo() {
@@ -25,6 +28,7 @@ function sigVentanaPedido() {
 function formularioPedido() {
     obtenerParametros();
 
+    var precio         = 100;
     var pcolor         = $("input:radio[name ='color']:checked").val().toString();
     var pdocumento     = document.getElementById('documento').value.toString();
     var pcantidad      = document.getElementById('cantidad').value.toString();
@@ -38,8 +42,10 @@ function formularioPedido() {
     var pagF = parseInt(ppaginaFin);
     var cant = parseInt(pcantidad);
 
+    if(pcolor == 'B') {precio=150;}
+
     while(pagI <= pagF) {
-        montoDOC=montoDOC+100;
+        montoDOC=montoDOC+precio;
         pagI++
     }
     montoDOC = montoDOC * cant;
@@ -117,6 +123,10 @@ function realizarPedido(color,documento,cantidad,paginas,montoDOC,telefono) {
 
                         var value = obj[key];
                         swal("Resultado",value.toString());
+
+                        if(value.toString() == 'Pedido agregado exitosamente') {
+                            comprobanteCorreo(montoDOC.toString(),cantidad,color,paginas,nombre,correo);
+                        }
                     }
                 }
             }
@@ -127,3 +137,55 @@ function realizarPedido(color,documento,cantidad,paginas,montoDOC,telefono) {
     xhttp.send();
 
 }
+
+function infoUsuario(telefono) {
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function () {
+
+        if (this.readyState == 4 && this.status == 200) {
+            if(this.statusText== "OK" && this.status == 200) {
+
+                var json = this.response;
+                var arr = JSON.parse(json);
+
+                for (var i = 0; i < arr.length; i++){
+
+                    var obj = arr[i];
+                    for (var key in obj){
+
+                        var value = obj[key];
+
+                        if(key.toString() == 'nombre'){
+                            nombre = value.toString();}
+                        if(key.toString() == 'correo'){
+                            correo = value.toString();}
+                    }
+                }
+            }
+            else{console.log(this.statusText, this.status)}
+        }
+    };
+    xhttp.open("GET", "../../php/conn.php?func=infoUsuario()&telefono="+telefono, true);
+    xhttp.send();
+}
+
+function comprobanteCorreo(monto,cantidad,color,paginas,nombre,correo) {
+    var service_id = "default_service";
+    var template_id = "facturasilvia";
+
+    if(color == 'B'){color="a color";}
+    if(color == 'N'){color="blanco y negro";}
+
+    var date  = new Date();
+    var fecha = date.getDate() + "/" + (date.getMonth() +1) + "/" + date.getFullYear();
+
+    var params = {"monto":monto,"correo":correo,"fecha":fecha,"nombre":nombre,"cantidad":cantidad,"color":color,"paginas":paginas}
+
+    emailjs.send(service_id,template_id,params)
+        .then(function(){
+        }, function(err) {
+            alert("Send email failed!\r\n Response:\n " + JSON.stringify(err));
+        });
+    return false;
+}
+
