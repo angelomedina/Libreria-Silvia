@@ -1,11 +1,11 @@
 function registroClientes() {
 
-    var telefono="0000-1991";
-    var nombre="0";
-    var primerApellido="0";
-    var segundoApellido="0";
-    var correo="0@gmail.com";
-    var contraseña="nughvhg";
+    var telefono        = document.getElementById('telefono_registro').value.toString();
+    var nombre          = document.getElementById('nombre_registro').value.toString();
+    var primerApellido  = document.getElementById('primerApellido_registro').value.toString();
+    var segundoApellido = document.getElementById('segundoApellido_registro').value.toString();
+    var correo          = document.getElementById('correo_registro').value.toString();
+    var contraseña      = document.getElementById('contraseña_registro').value.toString();
 
 
     var xhttp = new XMLHttpRequest();
@@ -13,7 +13,27 @@ function registroClientes() {
 
         if (this.readyState == 4 && this.status == 200) {
             if(this.statusText== "OK" && this.status == 200) {
-                console.log(this.response);
+
+
+                var json = this.response;
+                var arr = JSON.parse(json);
+
+                for (var i = 0; i < arr.length; i++){
+
+                    var obj = arr[i];
+                    for (var key in obj){
+
+                        var value = obj[key];
+                        swal("Resultado",value.toString());
+
+                        if(value.toString() == 'Usuario agregado exitosamente') {
+
+                            swal("Listo!", "Usuario agregado exitosamente!", "success")
+                                .then((value) => {
+                                    document.location.href = "../../vistas/login-registro/login.html";});
+                        }
+                    }
+                }
             }
             else{console.log(this.statusText, this.status)}
         }
@@ -64,8 +84,8 @@ function login() {
                     }
                 }else{
                     swal({
-                        title: "Are you sure?",
-                        text: "Once deleted, you will not be able to recover this imaginary file!",
+                        title: "Estas seguro?",
+                        text: "Por favor verifique los datos!",
                         icon: "warning",
                         buttons: true,
                         dangerMode: true,
@@ -84,10 +104,7 @@ function login() {
 function siguienteVentana(json, tipo) {
 
     if(tipo == 'C'){
-        swal("Good job!", "You clicked the button!", "success")
-            .then((value) => {
-                document.location.href = "../../vistas/cliente/pedido.html?json=" + json;
-            });
+        document.location.href = "../../vistas/cliente/pedido.html?json=" + json;
     }else{
         swal("Good job!", "You clicked the button!", "success")
             .then((value) => {

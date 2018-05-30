@@ -5,8 +5,8 @@
   background-image: -ms-linear-gradient(top, #73675C, #40352C);
   background-image: -o-linear-gradient(top, #73675C, #40352C);
   background-image: linear-gradient(to bottom, #73675C, #40352C);
-  -webkit-border-radius: 28;
-  -moz-border-radius: 28;
+  -webkit-border-radius: 28px;
+  -moz-border-radius: 28px;
   border-radius: 28px;
   font-family: Tahoma;
   color: #ffffff;
@@ -26,6 +26,9 @@
   display: inline-block;
 }
 
+.btn:active {
+  background:#73675C;
+}
 
 .blockquote {
   padding: 3px 10px;
@@ -61,7 +64,21 @@ h3 {
 
 }
 
+input[type=text] {
+  width: 180px;
+  padding: 5px 5px;
+  margin: 4px 0;
+  box-sizing: border-box;
+  border: 2px solid #7F3E26;
+  border-radius: 4px;
+}
 
+
+.rb{
+  color: #000000;
+  font-family: Tahoma;
+  font-size:12px;
+}
 
 table {     
   font-family: "Tahoma";

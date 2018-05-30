@@ -4,8 +4,11 @@
     <meta charset="UTF-8">
     <title>Registro </title>
 
-    <script type="text/javascript" src="../../js/metodosCliente.js"></script>
+    <script type="text/javascript" src="../../js/metodosLoginRegistro.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <link  rel="stylesheet" href="../../css/stylesCliente.css">
+
 </head>
 
 <body background="../../css/fondos/6.jpg" style="background-repeat:no-repeat;background-position: 0px 115px;background-size: 100% 92%">
@@ -18,29 +21,28 @@
         <div class="col-sm-6">
             <div class="card">
                 <div class="card-body">
-                        <h2 style="margin-left: 35%; ">Nombre
-                            <input type="text" id="nombre">
-                        </h2>
-                        <h2 style="margin-left: 29.5%; ">Primer apellido
-                            <input type="text" id="primerApellido">
-                        </h2>
-                        <h2 style="margin-left: 28%; ">Segundo apellido
-                            <input type="text" id="segundoApellido">    
-                        </h2>
-                        <h2 style="margin-left: 27%; ">Correo Electrónico
-                            <input type="text" id="correo">
-                        </h2>
-                        <h2 style="margin-left: 32%; ">Contraseña
-                            <input type="text" id="contraseña">
-                        </h2>
-                        <h2 style="margin-left: 34%; ">Teléfono
-                            <input type="text" id="telefono">
-                        </h2><br>   
+                    <h2 style="margin-left: 35%; ">Nombre</h2>
+                     <input type="text" id="nombre_registro">
 
-                        <div style="text-align: center" class="btn-group">
-                            <br>  <btn onclick="document.getElementBy('telefono').value=" " class="btn" >Guardar</btn>
-                            <a href="login.html" class="btn">Cancelar</a><br><br>
-                        </div>
+                    <h2 style="margin-left: 29.5%; ">Primer apellido</h2>
+                    <input type="text" id="primerApellido_registro">
+
+                    <h2 style="margin-left: 28%; ">Segundo apellido</h2>
+                    <input type="text" id="segundoApellido_registro">
+
+                    <h2 style="margin-left: 27%; ">Correo Electrónico</h2>
+                    <input type="text" id="correo_registro">
+
+                    <h2 style="margin-left: 32%; ">Contraseña</h2>
+                    <input type="text" id="contraseña_registro">
+
+                    <h2 style="margin-left: 34%; ">Teléfono</h2>
+                    <input type="text" id="telefono_registro"><br><br>
+
+                    <div style="text-align: center" class="btn-group">
+                        <a class="btn" onclick="registroClientes()">Guardar</a>
+                        <a  href="login.html" class="btn">Cancelar</a><br><br>
+                    </div>
                     </div>
                 </div>
             </div>

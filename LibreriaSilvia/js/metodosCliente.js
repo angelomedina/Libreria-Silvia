@@ -189,3 +189,7 @@ function comprobanteCorreo(monto,cantidad,color,paginas,nombre,correo) {
     return false;
 }
 
+function cancelar() {
+    document.getElementById("myForm").reset();
+}
+
