@@ -5,7 +5,10 @@
     <title>Librería Silvia </title>
 
     <script type="text/javascript" src="../../js/metodosCliente.js"></script>
+    <script type="text/javascript" src="../../js/metodosAdministrador.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <link  rel="stylesheet" href="../../css/stylesAdmi.css">
+
 </head>
 <body background="../../css/fondos/6.jpg" style="background-repeat:no-repeat;background-position: 0px 115px;background-size: 100% 92%">
     <div id="header">Librería Silvia</div>
@@ -19,11 +22,12 @@
                 <div class="card-body"><br><br><br>
                         
                             <h2 style="margin-left: 33%; ">Teléfono</h2>
-                            <input type="text" id="telefono"><br><br>
+                            <input type="text" id="telefono_recarga"><br><br>
 
                             <h2 style="margin-left: 35%; ">Monto</h2>
-                            <input type="text" id="monto"><br><br><br>
-                            <a style="margin-left: 45%;" class="btn">Recargar</a>
+                            <input type="text" id="monto_recarga"><br><br><br>
+
+                            <a  style="margin-left: 45%;" class="btn" onclick="activarVale()">Recargar</a>
                     </div>
                 </div>
             </div>

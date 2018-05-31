@@ -106,9 +106,6 @@ function siguienteVentana(json, tipo) {
     if(tipo == 'C'){
         document.location.href = "../../vistas/cliente/pedido.html?json=" + json;
     }else{
-        swal("Good job!", "You clicked the button!", "success")
-            .then((value) => {
-                document.location.href = "../../vistas/administrador/main.html?json=" + json;
-            });
+        document.location.href = "../../vistas/administrador/main.html" ;
     }
 }
