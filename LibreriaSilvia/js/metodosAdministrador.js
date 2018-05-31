@@ -1,3 +1,6 @@
+google.charts.load("current", {packages:["corechart"]});
+google.charts.setOnLoadCallback(drawChart);
+
 function activarVale() {
 
     var telefono=document.getElementById('telefono_recarga').value.toString();
@@ -50,4 +53,25 @@ function mostrarSolicitudes() {
     xhttp.open("GET", "../../php/conn.php?func=mostrarSolicitudes()", true);
     xhttp.send();
 
+}
+
+function drawChart() {
+    var data = google.visualization.arrayToDataTable([
+        ['Language', 'Speakers (in millions)'],
+        ['Cantidad', 50], ['Tipo', 10], ['Color', 10],
+        ['Monto', 10]
+    ]);
+
+    var options = {
+        slices: {
+            4: {offset: 0.2},
+            12: {offset: 0.3},
+            14: {offset: 0.4},
+            15: {offset: 0.5},
+        },
+        backgroundColor: 'transparent',
+    };
+
+    var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+    chart.draw(data, options);
 }
