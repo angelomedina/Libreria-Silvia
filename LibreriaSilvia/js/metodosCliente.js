@@ -64,6 +64,7 @@ function formularioPedido() {
                 realizarPedido(pcolor,pdocumento,pcantidad,paginas,montoDOC,ptelefono);
             } else {}
         });
+
 }
 
 function saldo() {

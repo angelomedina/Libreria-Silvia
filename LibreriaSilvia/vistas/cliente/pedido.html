@@ -22,12 +22,19 @@
         <div class="row">
         <div class="col-sm-6">
             <div class="card">
-                <div class="card-body">               
-                        <h2 style="margin-left: 5%; ">Color</h2>
-                        <h2>                         
-                            <input type="radio" class = "rb" name="color" value="B" checked> Si
-                            <input type="radio" class = "rb" name="color" value="N"> No
-                        </h2>
+                <div class="card-body">
+
+                        <h2 style="margin-left: 8%; ">Color</h2>
+
+                        <label class="container">Color
+                            <input type="radio" checked="checked" name="color" value="B" >
+                            <span class="checkmark"></span>
+                        </label>
+                        <label class="container">Blanco y negro
+                            <input type="radio" name="color" value="N">
+                            <span class="checkmark"></span>
+                        </label>
+
                         <form id="myForm">
                             <h2 style="margin-left: 5%; ">Ingrese el documento</h2>
                             <input type="text" id="documento">
@@ -44,7 +51,7 @@
                          </form>
                         </div>
 
-                        <br><br><br>
+                        <br><br>
                         <a style="margin-left: 35%; "  onclick="formularioPedido()" class="btn">Enviar</a>
                         <a style="margin-left: 3%;"    onclick="cancelar()" class="btn">Cancelar</a>
 

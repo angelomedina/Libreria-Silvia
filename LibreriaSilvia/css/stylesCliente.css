@@ -71,7 +71,7 @@ h4 {
 
 }
 
-input[type=text] {
+input{
     width: 180px;
     padding: 5px 5px;
     margin: 4px 0;
@@ -80,12 +80,12 @@ input[type=text] {
     border-radius: 4px;
 }
 
-
 .rb{
     color: #000000;
     font-family: Tahoma;
     font-size:12px;
 }
+
 
 
 #header{
@@ -102,5 +102,63 @@ input[type=text] {
   padding:10px;
 }
 
+.container {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 16px;
+    font-family: Tahoma;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    margin-left: 10%;
+}
+
+
+.container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 18px;
+    width: 18px;
+    background-color: white;
+    border-radius: 50%;
+}
+
+.container:hover input ~ .checkmark {
+    background-color: #ccc;
+}
+
+.container input:checked ~ .checkmark {
+    background-color: #40352C;
+}
+
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+.container input:checked ~ .checkmark:after {
+    display: block;
+}
+
+.container .checkmark:after {
+    top: 6px;
+    left: 6px;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: white;
+}
 
 
