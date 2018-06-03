@@ -104,7 +104,7 @@ function login() {
 function siguienteVentana(json, tipo) {
 
     if(tipo == 'C'){
-        document.location.href = "../../vistas/cliente/pedido.html?json=" + json;
+        document.location.href = "../../vistas/cliente/pedido.php?json=" + json;
     }else{
         document.location.href = "../../vistas/administrador/main.html" ;
     }

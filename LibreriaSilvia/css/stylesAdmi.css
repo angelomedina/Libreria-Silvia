@@ -35,7 +35,7 @@
   border: #555555 5px solid;
   border-radius: 10px;
   width   : 800px;
-  height  : 450px; 
+  height  : 450px;
   margin: 20px auto;
   background-color:rgba(232, 204, 169,0.7);
   position:relative;
@@ -43,24 +43,24 @@
 
 
 h1 {
-    color: #40352C;
-    font-family: Tahoma;
-    font-size:45px;
-    text-align: center;
+  color: #40352C;
+  font-family: Tahoma;
+  font-size:45px;
+  text-align: center;
 }
 
 h2 {
-    color: #000000;
-    font-family: Tahoma;
-    font-size:12px;
+  color: #000000;
+  font-family: Tahoma;
+  font-size:12px;
 
-    display: inline-block;
+  display: inline-block;
 }
 
 h3 {
-    color: #000000;
-    font-family: Tahoma;
-    font-size:12px;
+  color: #000000;
+  font-family: Tahoma;
+  font-size:12px;
 
 }
 
@@ -80,33 +80,42 @@ input[type=text] {
   font-size:12px;
 }
 
-table {     
+table {
   font-family: "Tahoma";
-  font-size: 12px; 
-  text-align: left;    
+  font-size: 12px;
+  text-align: left;
   border-collapse: collapse;
   width: 500px;
-  border: #40352C 1px solid; 
+  border: #40352C 1px solid;
+
 }
 
-th {     
-  font-size: 13px;     
-  font-weight: normal;     
-  padding: 8px;     
-  background: #e7e7e7;   
-  border-bottom: 1px solid #40352C; 
+tbody {
+  display: block; /obligado/
+height: 262px; /la que necesites/
+overflow: auto; /obligado/
+width: 100%;
+}
+
+
+th {
+  font-size: 13px;
+  font-weight: normal;
+  padding: 8px;
+  background: #e7e7e7;
+  border-bottom: 1px solid #40352C;
   color: #000000;
-  border: #40352C 1px solid;  
+  border: #40352C 1px solid;
   font-weight: bold;
-  text-align: center; 
+  text-align: center;
 
 }
 
-td {    
-  padding: 8px;     
-  background: #e7e7e7;     
+td {
+  padding: 8px;
+  background: #e7e7e7;
   border-bottom: 1px solid #000000;
-  color: #000000;     
+  color: #000000;
   border-bottom: 1px solid #000000;
   border: #000000 1px solid;
 }

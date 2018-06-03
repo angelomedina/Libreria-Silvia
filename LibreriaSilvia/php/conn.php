@@ -29,6 +29,8 @@ if ($_GET['func']=='infoUsuario()'){
 }
 
 
+$nombreArchivo = "";
+
 function conexion(){
     $serverName = "localhost\sqlexpress,1433";
     $connectionInfo = array( "Database"=>"Nodo", "UID"=>"sa", "PWD"=>"deathnote");
@@ -127,7 +129,9 @@ function mostrarSolicitudes(){
     $conn = conexion();
     $result = array();
 
-    $sql = "select s.id,s.telefono,d.documento,s.cantidad,s.color,s.pagina,s.montoCompra,s.fecha from   solicitud  as s inner join  documento as d on d.idSolicitud = s.id";
+    $sql = "select u.nombre, u.primerApellido,u.segundoApellido, u.correo,s.fecha, s.id,s.telefono,d.documento,s.cantidad,s.color,s.pagina
+            from  solicitud as s inner join  documento as d on d.idSolicitud = s.id  
+            inner join [Central].dbo.usuario as u on s.telefono = u.telefono";
     $stmt = sqlsrv_query( $conn, $sql );
 
     if($stmt === false) {
@@ -228,4 +232,9 @@ function infoUsuario($telefono){
         sqlsrv_close($conn);
         echo json_encode($result);
     }
+}
+
+
+function nombreArchivo(){
+
 }

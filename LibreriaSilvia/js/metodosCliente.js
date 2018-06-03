@@ -22,7 +22,7 @@ function sigVentanaSaldo() {
 
 function sigVentanaPedido() {
     obtenerParametros();
-    document.location.href = "../../vistas/cliente/pedido.html?json=" + telefono;
+    document.location.href = "../../vistas/cliente/pedido.php?json=" + telefono;
 }
 
 function formularioPedido() {
@@ -51,19 +51,18 @@ function formularioPedido() {
     montoDOC = montoDOC * cant;
     var paginas = ppaginaInicio+"-"+ppaginaFin;
 
-
     swal({
         title: "PRECIO DEL PEDIDO",
         text: "₡ "+montoDOC.toString(),
         icon: "warning",
         buttons: true,
         dangerMode: true,
-    })
-        .then((value) => {
-            if (value) {
-                realizarPedido(pcolor,pdocumento,pcantidad,paginas,montoDOC,ptelefono);
-            } else {}
-        });
+    }).then((value) => {
+        if (value) {
+            realizarPedido(pcolor,pdocumento,pcantidad,paginas,montoDOC,ptelefono);
+        } else {}
+    });
+
 
 }
 
