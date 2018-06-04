@@ -193,3 +193,11 @@ function cancelar() {
     document.getElementById("myForm").reset();
 }
 
+
+function pruebaDoc() {
+
+    var fileToUpload = $('#input-file').prop('files')[0];
+
+    alert(fileToUpload);
+}
+

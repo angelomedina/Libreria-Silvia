@@ -1,4 +1,6 @@
 <?php
+
+
 if ($_FILES['archivo']["error"] > 0)
 {
     echo "Error al subir archivo";

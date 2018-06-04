@@ -91,10 +91,10 @@ table {
 }
 
 tbody {
-  display: block; /obligado/
-height: 262px; /la que necesites/
-overflow: auto; /obligado/
-width: 100%;
+    display: block;
+    height: 262px;
+    overflow: auto;
+    width: 100%;
 }
 
 

@@ -311,9 +311,9 @@ select * from solicitud
 --DROP PROCEDURE datosGrafico
 create PROCEDURE datosGrafico
     @cantidad		int,
-    @tipo			char(1),
-	@color			char(1),
-	@monto          int
+    @tipo			  char(1),
+	  @color			char(1),
+	  @monto          int
 AS
 Declare
    @fechaG  datetime,

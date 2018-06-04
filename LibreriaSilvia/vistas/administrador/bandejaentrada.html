@@ -6,16 +6,18 @@
 
     <script type="text/javascript" src="../../js/metodosAdministrador.js"></script>
     <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
     <script type="text/javascript">
         (function(){
             emailjs.init("user_OB7h697WzggGYQWKOk8NG");
         })();
     </script>
+
     <link  rel="stylesheet" href="../../css/stylesAdmi.css">
 
 </head>
-<body background="../../css/fondos/6.jpg" style="background-repeat:no-repeat;background-position: 0px 115px;background-size: 100% 92%">
+<body background="../../css/fondos/6.jpg" style="background-repeat:no-repeat;background-position: 0px 115px;background-size: 100% 92%" onload="mostrarSolicitudes()">
 <div id="header">Librería Silvia</div>
 <br><br><br><br><br><br>
 
@@ -41,8 +43,6 @@
                         </tbody>
                     </table>
                     <br><br>
-                    <a class="btn2" onclick="mostrarSolicitudes()"> ACTUALIZAR </a>
-
                 </div>
             </div>
         </div>
