@@ -136,3 +136,17 @@ function drawChart() {
     chart.draw(data, options);
 }
 
+function pedidoListo(correo,nombre,fecha) {
+    var service_id = "default_service";
+    var template_id = "pedidolisto";
+
+
+    var params = {"to_email":correo,"nombre":nombre,"fecha":fecha}
+
+    emailjs.send(service_id,template_id,params)
+        .then(function(){
+        }, function(err) {
+            alert("Send email failed!\r\n Response:\n " + JSON.stringify(err));
+        });
+    return false;
+}

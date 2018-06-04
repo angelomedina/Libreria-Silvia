@@ -13,78 +13,75 @@
 
 
 </head>
-        <body background="../../css/fondos/6.jpg" style="background-repeat:no-repeat;background-position: 0px 115px;background-size: 100% 92%">
-        <div id="header">Librería Silvia</div>
-        <br><br><br><br><br><br>
+<body background="../../css/fondos/6.jpg" style="background-repeat:no-repeat;background-position: 0px 115px;background-size: 100% 92%">
+<div id="header">Librería Silvia</div>
+<br><br><br><br><br><br>
 
-        <script>
-            enviar=function () {
-                <?php phpFuncion()?>
-            }
-        </script>
+<script>
+    enviar=function () {
+        <?php phpFuncion()?>
+    }
+</script>
 
-        <?php
+<?php
 
-        function phpFuncion()
-        {
-            if ($_FILES['archivo']["error"] > 0)
-            {
-                echo "Error: " . $_FILES['archivo']['error'] . "<br>";
-            }
-            else
-            {
-                $nombre = $_FILES['archivo']['name'];
+function phpFuncion()
+{
+    if ($_FILES['archivo']["error"] > 0)
+    {
+        echo "Error: " . $_FILES['archivo']['error'] . "<br>";
+    }
+    else
+    {
+        $nombre = $_FILES['archivo']['name'];
 
-                move_uploaded_file($_FILES['archivo']['tmp_name'], "../../php/subidas/" . $_FILES['archivo']['name']);
-            };
-        }
-        ?>
+        move_uploaded_file($_FILES['archivo']['tmp_name'], "../../php/subidas/" . $_FILES['archivo']['name']);
+    };
+}
+?>
 
-        <div class="blockquote"> <br><br>
-            <h1>Impresión</h1>
-            <div class="row">
-                <div class="col-sm-6">
-                    <div class="card">
-                        <div class="card-body">
+<div class="blockquote"> <br><br>
+    <h1>Impresión</h1>
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="card">
+                <div class="card-body">
 
+                    <form action="pedido.php" method="post" enctype="multipart/form-data">
+                        <input style="margin-left: 25%;"  class="hidden" type="file" name="archivo" id="archivo"></input>
+                        <input style="margin-left: 2%;"   type="submit" value="Subir archivo" onclick="enviar()"></input>
+                    </form>
 
-                            <form action="pedido.php" method="post" enctype="multipart/form-data">
-                                <input style="margin-left: 25%;"  class="hidden" type="file" name="archivo" id="archivo"></input>
-                                <input style="margin-left: 2%;"   type="submit" value="Subir archivo" onclick="enviar()"></input>
-                            </form>
+                    <h2 style="margin-left: 8%; ">Color</h2>
 
-                            <h2 style="margin-left: 8%; ">Color</h2>
+                    <label class="container">Color
+                        <input type="radio" checked="checked" name="color" value="B" >
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class="container">Blanco y negro
+                        <input type="radio" name="color" value="N">
+                        <span class="checkmark"></span>
+                    </label>
 
-                            <label class="container">Color
-                                <input type="radio" checked="checked" name="color" value="B" >
-                                <span class="checkmark"></span>
-                            </label>
-                            <label class="container">Blanco y negro
-                                <input type="radio" name="color" value="N">
-                                <span class="checkmark"></span>
-                            </label>
+                    <form id="myForm">
+                        <h2 style="margin-left: 5%; ">Ingrese el documento</h2>
+                        <input type="text" id="documento">
 
-                            <form id="myForm">
-                                <h2 style="margin-left: 5%; ">Ingrese el documento</h2>
-                                <input type="text" id="documento">
-
-                                <h2 style="margin-left: 6%; ">Cantidad</h2>
-                                <input type="text" id="cantidad"><br>
-                                </h2>
-                                <h2 style="margin-left: 12%; ">Página inicio</h2>
-                                <input type="text" id="paginaInicio">
-                                <h2 style="margin-left: 4%; ">Página final</h2>
-                                <input type="text" id="paginaFinal"><br><br><br>
-                            </form>
-                        </div>
-
-                        <input type="button" onclick="sigVentanaSaldo()" value="Verificar Saldo" style="margin-left: 110px;">
-                        <input type="button" onclick="formularioPedido()" value="Enviar">
-                        <input type="button" onclick="cancelar()" value="cancelar">
-
-                    </div>
+                        <h2 style="margin-left: 6%; ">Cantidad</h2>
+                        <input type="text" id="cantidad"><br>
+                        </h2>
+                        <h2 style="margin-left: 12%; ">Página inicio</h2>
+                        <input type="text" id="paginaInicio">
+                        <h2 style="margin-left: 4%; ">Página final</h2>
+                        <input type="text" id="paginaFinal"><br><br><br>
+                    </form>
                 </div>
+                <a class="btn" onclick="sigVentanaSaldo()"  style="margin-left: 25%;"> Verificar Saldo </a>
+                <a class="btn" onclick="formularioPedido()" style="margin-left: 1%;"> Enviar </a>
+                <a class="btn" onclick="cancelar()"         style="margin-left: 1%;"> Cancelar</a>
             </div>
         </div>
-        </div>
+    </div>
+</div>
+</div>
 </body>
