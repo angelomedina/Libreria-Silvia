@@ -306,5 +306,38 @@ select * from [localhost].Central.dbo.solicitud
 select * from solicitud
 
 
+ Select convert (varchar(7), getdate(),20) fecha from [localhost].Central.dbo.solicitud 
+
+--DROP PROCEDURE datosGrafico
+create PROCEDURE datosGrafico
+    @cantidad		int,
+    @tipo			char(1),
+	@color			char(1),
+	@monto          int
+AS
+Declare
+   @fechaG  datetime,
+   @colorG int,
+   @negroG int,
+   @montoG int;
+   begin
+	set @fechaG=GETDATE();
+	if exists (Select convert (varchar(7), getdate(),20) fecha from [localhost].Central.dbo.solicitud where @fecha = fecha)
+		begin
+			if(@color = 'B')
+				set @colorG =@colorG+1;
+				set @fechaG =  @fechaG;
+				set  @montoG = @montoG + @monto;
+			end
+
+			else
+				begin
+					set @negroG = @negroG+1;
+					set @fechaG =  @fechaG;
+					set  @monto = @monto + @monto;
+				end
+		end
+ GO
+
 
 
