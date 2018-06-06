@@ -50,7 +50,7 @@ function mostrarSolicitudes() {
                 var response = this.response;
                 var json     = JSON.parse(response);
 
-                rellenarTabla(json);
+                verificaEstadoSolicitud(json);
             }
             else{console.log(this.statusText, this.status)}
         }
@@ -60,25 +60,97 @@ function mostrarSolicitudes() {
 
 }
 
-function drawChart() {
-    var data = google.visualization.arrayToDataTable([
-        ['Language', 'Speakers (in millions)'],
-        ['Cantidad', 50], ['Tipo', 10], ['Color', 10],
-        ['Monto', 10]
-    ]);
+function verificaEstadoSolicitud(json) {
 
-    var options = {
-        slices: {
-            4: {offset: 0.2},
-            12: {offset: 0.3},
-            14: {offset: 0.4},
-            15: {offset: 0.5},
-        },
-        backgroundColor: 'transparent',
-    };
+    for (var i = 0; i < json.length; i++){
 
-    var chart = new google.visualization.PieChart(document.getElementById('piechart'));
-    chart.draw(data, options);
+        var obj = json[i];
+        for (var key in obj){
+
+            var value = obj[key];
+
+            if(key == 'estado') {
+
+               if(value == 'T'){
+                   rellenarTabla(json);
+               }
+            }
+        }
+    }
+}
+
+function drawChart(json) {
+
+    if(typeof json !== "undefined") {
+
+        var cantidad    = 0;
+        var color       = 0;
+        var blancoNegro = 0;
+        var monto       = 0;
+
+        for (var i = 0; i < json.length; i++){
+
+            var obj = json[i];
+            for (var key in obj){
+
+                var value = obj[key];
+
+                if(key == 'Cantidad') {
+                    cantidad = parseInt(value);
+                }
+                if(key == 'Color') {
+                    color = parseInt(value);
+                }
+                if(key == 'Blanco y Negro') {
+                    blancoNegro = parseInt(value);
+                }
+                if(key == 'Monto total') {
+                    monto = parseInt(value);
+                }
+
+            }
+        }
+
+        var data = google.visualization.arrayToDataTable([
+            ['Language', 'Speakers (in millions)'],
+            ['Cantidad', cantidad], ['A color', color], ['Blanco y negro', blancoNegro],
+            ['Monto', monto/1000]
+        ]);
+
+        var options = {
+            slices: {
+                4: {offset: 0.2},
+                12: {offset: 0.3},
+                14: {offset: 0.4},
+                15: {offset: 0.5},
+            },
+            backgroundColor: 'transparent',
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+        chart.draw(data, options);
+    }
+    else{
+
+        var data = google.visualization.arrayToDataTable([
+            ['Language', 'Speakers (in millions)'],
+            ['Cantidad', 1], ['A color', 1], ['Blanco y negro', 1],
+            ['Monto', 1]
+        ]);
+
+        var options = {
+            slices: {
+                4: {offset: 0.2},
+                12: {offset: 0.3},
+                14: {offset: 0.4},
+                15: {offset: 0.5},
+            },
+            backgroundColor: 'transparent',
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+        chart.draw(data, options);
+    }
 }
 
 function getFecha() {
@@ -120,8 +192,6 @@ function agregagrElementosSelect(fecha) {
             option.text = fecha;
             select.add(option);
 }
-
-
 
 function rellenarTabla(solicitudesJson) {
 
@@ -168,6 +238,7 @@ function rellenarTabla(solicitudesJson) {
 
 
 
+        pid    = solicitudesJson[x]["id"];
         pCorreo= correo.toString();
         pNombre= nombre.toString();
         pFecha = fechaPura.toString();
@@ -180,23 +251,17 @@ function rellenarTabla(solicitudesJson) {
         cell6.innerHTML= correo;
         cell7.innerHTML = telefono;
         cell8.innerHTML = fechaJson[0].replace(/['"]+/g, '');
-        cell9.innerHTML = '<a class="btn2" onclick="abrirDocumento()">Abrir</a>  <br><br>  <a class="btn2" onclick="pedidoListo(this)">Listo</a>'
+        cell9.innerHTML = '<a class="btn2" onclick="abrirDocumento()">Abrir</a>  <br><br>  <a class="btn2" onclick="pedidoListo(this,pid)">Listo</a>'
     }
 }
 
-function pedidoListo(row) {
+function pedidoListo(row,id) {
 
     var i = row.parentNode.parentNode.rowIndex;  // se consigue el indice de la fila a utilizar para conseguir los datos
-
 
     var nombre= document.getElementById("tablaSolicitudes").rows[i].cells[0].innerText;
     var correo= document.getElementById("tablaSolicitudes").rows[i].cells[5].innerText;
     var fecha = document.getElementById("tablaSolicitudes").rows[i].cells[7].innerText;
-
-    console.log("Nombre: "+ nombre);
-    console.log("Correo: "+ correo);
-    console.log("Fecha: "+ fecha);
-
 
     var service_id = "default_service";
     var template_id = "pedidolisto";
@@ -208,6 +273,9 @@ function pedidoListo(row) {
 
     emailjs.send(service_id,template_id,params)
         .then(function(){
+
+            estadoSolicitud(id);
+
             swal({
                 title: "Correo de confimación listo!",
                 text: "Destinatario: "+correo,
@@ -218,4 +286,66 @@ function pedidoListo(row) {
             alert("Send email failed!\r\n Response:\n " + JSON.stringify(err));
         });
     return false;
+}
+
+function setFecha(){
+    var combo    = document.getElementById("Fecha");
+    var selected = combo.options[combo.selectedIndex].text;
+    getGrafic(selected);
+}
+
+function getGrafic(fecha) {
+
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function () {
+
+        if (this.readyState == 4 && this.status == 200) {
+            if(this.statusText== "OK" && this.status == 200) {
+
+                var arr = this.response;
+                var json = JSON.parse(arr);
+                drawChart(json);
+
+            }
+            else{console.log(this.statusText, this.status)}
+        }
+    };
+    xhttp.open("GET", "../../php/conn.php?func=getGrafico()&fecha="+fecha.toString(), true);
+    xhttp.send();
+}
+
+function estadoSolicitud(id){
+
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function () {
+
+        if (this.readyState == 4 && this.status == 200) {
+            if(this.statusText== "OK" && this.status == 200) {
+
+                //swal("Infome de estado!", this.response.toString());
+                //si llega aqui esta lista el seteo de estado
+            }
+            else{console.log(this.statusText, this.status)}
+        }
+    };
+    xhttp.open("GET", "../../php/conn.php?func=estadoSolicitud()&id="+id.toString(), true);
+    xhttp.send();
+}
+
+function mostrarSolicitudesListas() {
+
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function () {
+
+        if (this.readyState == 4 && this.status == 200) {
+            if(this.statusText== "OK" && this.status == 200) {
+
+                console.log(this.response);
+            }
+            else{console.log(this.statusText, this.status)}
+        }
+    };
+    xhttp.open("GET", "../../php/conn.php?func=mostrarSolicitudesListas()", true);
+    xhttp.send();
+
 }

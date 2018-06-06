@@ -1,9 +1,8 @@
 <?php
 
-
 if ($_FILES['archivo']["error"] > 0)
 {
-    echo "Error al subir archivo";
+    header('Location: ../vistas/cliente/pedido.php?json='.urlencode('7227-9636').'&'.'nombre='.urlencode("Error").'&'.'mensaje='.urlencode("Error"));
 }
 else
 {
@@ -11,8 +10,11 @@ else
     move_uploaded_file($_FILES['archivo']['tmp_name'], "subidas/" . $_FILES['archivo']['name']);
 
     $VAR='subidas/'.$_FILES['archivo']['name'];
+    $nombre   = $_FILES['archivo']['name'];
+    $mensaje  = "Exito";
+    $telefono =  "<script>document.write(palabra)";
 
-    echo "Exito al subir el archivo";
 
+    header('Location: ../vistas/cliente/pedido.php?json='.urlencode($telefono).'&'.'nombre='.urlencode($nombre).'&'.'mensaje='.urlencode($mensaje));
 };
 ?>

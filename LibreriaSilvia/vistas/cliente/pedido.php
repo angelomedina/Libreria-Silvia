@@ -17,29 +17,6 @@
         <div id="header">Librería Silvia</div>
         <br><br><br><br><br><br>
 
-        <script>
-            enviar=function () {
-                <?php phpFuncion()?>
-            }
-        </script>
-
-        <?php
-
-        function phpFuncion()
-        {
-            if ($_FILES['archivo']["error"] > 0)
-            {
-                echo "Error: " . $_FILES['archivo']['error'] . "<br>";
-            }
-            else
-            {
-
-                $nombre = $_FILES['archivo']['name'];
-                move_uploaded_file($_FILES['archivo']['tmp_name'], "../../php/subidas/" . $_FILES['archivo']['name']);
-
-            };
-        }
-        ?>
 
         <div class="blockquote"> <br><br>
             <h1>Impresión</h1>
@@ -48,11 +25,10 @@
                     <div class="card">
                         <div class="card-body">
 
-
-
-
-                            <input type="file" name="input-file" id="input-file">
-                            <input style="margin-left: 2%;"  type="submit"  value="Subir archivo" onclick="pruebaDoc()"></input>
+                            <form  action="../../php/subirArchivo.php"  method="post" enctype="multipart/form-data">
+                                <input style="margin-left: 25%;"  class="hidden" type="file" name="archivo" id="archivo"></input>
+                                <input style="margin-left: 2%;"   type="submit" value="Subir archivo"></input>
+                            </form>
 
                             <h2 style="margin-left: 8%; ">Color</h2>
 

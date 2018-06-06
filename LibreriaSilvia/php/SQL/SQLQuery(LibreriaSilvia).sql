@@ -341,3 +341,59 @@ Declare
 
 
 
+Select convert (varchar(10), getdate(),111) fecha from solicitud
+
+create PROCEDURE datosGrafico
+    @fecha datetime, --recibe fecha definida
+	@cant int OUTPUT,
+	@col int OUTPUT,
+	@neg int OUTPUT,
+	@mont int OUTPUT
+
+AS
+Declare				-- se declaran variables de contadores de datos
+   @cantidad int,
+   @colorG int ,
+   @negroG int,
+   @montoG int
+   --@tipo int   [ a que se refiere tipo??]
+
+    begin
+
+	if exists ( Select cantidad,color, convert (varchar(7), getdate(),20) fecha from solicitud
+	where MONTH(fecha) = MONTH(@fecha) and YEAR(fecha) = YEAR(@fecha) )
+
+		set @colorG = (select count(color) from solicitud
+		where  color ='B' and MONTH(fecha) = MONTH(@fecha) and YEAR(fecha) = YEAR(@fecha))
+
+		set @negroG = (select count(color) from solicitud
+		where  color ='N' and MONTH(fecha) = MONTH(@fecha) and YEAR(fecha) = YEAR(@fecha))
+
+		set @cantidad= ( select sum(cantidad) from solicitud
+		where  MONTH(fecha) = MONTH(@fecha) and YEAR(fecha) = YEAR(@fecha))
+
+		set @montoG= ( select sum(montoCompra) from solicitud
+		where  MONTH(fecha) = MONTH(@fecha) and YEAR(fecha) = YEAR(@fecha))
+
+		set @cant= @cantidad
+		set @col= @colorG
+		set @neg = @negroG
+		set @mont= @montoG
+
+		select @cant as "Cantidad", @col as "Color" ,@neg as "Blanco y Negro", @mont as "Monto total"
+
+		end
+GO
+
+create PROCEDURE solicitudLista
+	@idSolicitud int
+
+	AS
+	Begin
+		Update [localhost].Nodo.dbo.solicitud
+		set estado= 'F'  -- setea el estado F de solicitud realizada
+		where id = @idSolicitud
+	End
+Go
+
+select id,telefono,fecha,montoCompra,cantidad,color,pagina,estado from solicitud where estado = 'F'

@@ -32,6 +32,17 @@ if ($_GET['func']=='getFecha()'){
     getFecha();
 }
 
+if ($_GET['func']=='getGrafico()'){
+    getGrafico($_GET['fecha']);
+}
+
+if ($_GET['func']=='estadoSolicitud()'){
+    estadoSolicitud($_GET['id']);
+}
+
+if ($_GET['func']=='mostrarSolicitudesListas()'){
+    mostrarSolicitudesListas();
+}
 
 function conexion(){
     $serverName = "localhost\sqlexpress,1433";
@@ -131,7 +142,7 @@ function mostrarSolicitudes(){
     $conn = conexion();
     $result = array();
 
-    $sql = "select u.nombre, u.primerApellido,u.segundoApellido, u.correo,s.fecha, s.id,s.telefono,d.documento,s.cantidad,s.color,s.pagina
+    $sql = "select u.nombre, u.primerApellido,u.segundoApellido, u.correo,s.fecha, s.id,s.telefono,d.documento,s.cantidad,s.color,s.pagina,s.estado
             from  solicitud as s inner join  documento as d on d.idSolicitud = s.id  
             inner join [Central].dbo.usuario as u on s.telefono = u.telefono";
     $stmt = sqlsrv_query( $conn, $sql );
@@ -240,7 +251,77 @@ function getFecha(){
     $conn = conexion();
     $result = array();
 
-    $sql = " Select convert (varchar(7), getdate(),20) fecha from [localhost].Central.dbo.solicitud ";
+    $sql = " Select convert (varchar(10), getdate(),111) fecha from solicitud ";
+    $stmt = sqlsrv_query( $conn, $sql );
+
+    if($stmt === false) {
+        sqlsrv_close($conn);
+
+        $result[] = "Error: mostrar solicitud";
+        echo json_encode($result);
+    }
+    else {
+
+        do {
+            while ($row = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC)){
+                $result[] = $row;
+            }
+        }   while (sqlsrv_next_result($stmt));
+        sqlsrv_close($conn);
+        echo json_encode($result);
+    }
+}
+
+function getGrafico($fecha){
+    $conn = conexion();
+    $result = array();
+
+    $sql = "exec datosGrafico '$fecha',0 ,0,0,0";
+    $stmt = sqlsrv_query( $conn, $sql );
+
+    if($stmt === false) {
+        sqlsrv_close($conn);
+
+        $result[] = "Error: mostrar solicitud";
+        echo json_encode($result);
+    }
+    else {
+
+        do {
+            while ($row = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC)){
+                $result[] = $row;
+            }
+        }   while (sqlsrv_next_result($stmt));
+        sqlsrv_close($conn);
+        echo json_encode($result);
+    }
+}
+
+function estadoSolicitud($id){
+    $conn = conexion();
+    $result = array();
+
+    $sql = "exec  solicitudLista '$id'";
+    $stmt = sqlsrv_query( $conn, $sql );
+
+    if($stmt === false) {
+        sqlsrv_close($conn);
+
+        $result[] = "Error: mostrar solicitud";
+        echo json_encode($result);
+    }
+    else {
+
+        echo "Solicitud marcada como lista";
+    }
+}
+
+function mostrarSolicitudesListas(){
+
+    $conn = conexion();
+    $result = array();
+
+    $sql = "select id,telefono,fecha,montoCompra,cantidad,color,pagina,estado from solicitud where estado = 'F'";
     $stmt = sqlsrv_query( $conn, $sql );
 
     if($stmt === false) {

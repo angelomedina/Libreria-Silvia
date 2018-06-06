@@ -2,6 +2,7 @@ var telefono = "";
 var nombre = "";
 var correo = "";
 
+
 function getParameterByName(name) {
     name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
     var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
@@ -106,6 +107,8 @@ function saldo() {
 
 function realizarPedido(color,documento,cantidad,paginas,montoDOC,telefono) {
 
+
+
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function () {
 
@@ -116,6 +119,7 @@ function realizarPedido(color,documento,cantidad,paginas,montoDOC,telefono) {
                 var json = this.response;
                 var arr = JSON.parse(json);
 
+
                 for (var i = 0; i < arr.length; i++){
 
                     var obj = arr[i];
@@ -123,6 +127,8 @@ function realizarPedido(color,documento,cantidad,paginas,montoDOC,telefono) {
 
                         var value = obj[key];
                         swal("Resultado",value.toString());
+
+
 
                         if(value.toString() == 'Pedido agregado exitosamente') {
                             comprobanteCorreo(montoDOC.toString(),cantidad,color,paginas,nombre,correo);
@@ -194,10 +200,4 @@ function cancelar() {
 }
 
 
-function pruebaDoc() {
-
-    var fileToUpload = $('#input-file').prop('files')[0];
-
-    alert(fileToUpload);
-}
 
