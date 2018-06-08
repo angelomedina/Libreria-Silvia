@@ -5,39 +5,55 @@ var solicitudesJson;
 
 function activarVale() {
 
-    var telefono=document.getElementById('telefono_recarga').value.toString();
-    var monto   =document.getElementById('monto_recarga').value.toString();
+    var telefono = document.getElementById('telefono_recarga').value.toString();
+    var monto = document.getElementById('monto_recarga').value.toString();
 
-    var xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function () {
 
-        if (this.readyState == 4 && this.status == 200) {
-            if(this.statusText== "OK" && this.status == 200) {
+    if (telefono != "" && telefono.length ==8) {    // validaciones para el input de telefono
 
-                var json = this.response;
-                var arr = JSON.parse(json);
+        var t1= telefono[0] +""+telefono[1] +""+telefono[2] +""+telefono[3];
+        var t2= telefono[4] +""+telefono[5] +""+telefono[6] +""+telefono[7];
+        var telefono = t1+"-"+t2;       // realiaz concatenacnion de telefono para el formato requerido 1234-5678
 
-                for (var i = 0; i < arr.length; i++){
+            if (monto != "" && monto > 0) { // valida monto ingresado
 
-                    var obj = arr[i];
-                    for (var key in obj){
+                var xhttp = new XMLHttpRequest();   // ejecutara solicitud solamente si los datos ingresado son validos
+                xhttp.onreadystatechange = function () {
 
-                        var value = obj[key];
-                        swal("Resultado",value.toString());
+                    if (this.readyState == 4 && this.status == 200) {
+                        if (this.statusText == "OK" && this.status == 200) {
 
-                        if(value.toString() == 'Vale agregado exitosamente') {
+                            var json = this.response;
+                            var arr = JSON.parse(json);
 
-                            swal("Listo!", value.toString()+"!", "success");
+                            for (var i = 0; i < arr.length; i++) {
 
+                                var obj = arr[i];
+                                for (var key in obj) {
+
+                                    var value = obj[key];
+                                    swal("Resultado", value.toString());
+
+                                    if (value.toString() == 'Vale agregado exitosamente') {
+
+                                        swal("Listo!", value.toString() + "!", "success");
+
+                                    }
+                                }
+                            }
+                        }
+                        else {
+                            console.log(this.statusText, this.status)
                         }
                     }
-                }
+                };
+                xhttp.open("GET", "../../php/conn.php?func=activarVale()&telefono=" + telefono + "&monto=" + monto.toString(), true);
+                xhttp.send();
             }
-            else{console.log(this.statusText, this.status)}
-        }
-    };
-    xhttp.open("GET", "../../php/conn.php?func=activarVale()&telefono="+telefono+"&monto="+monto.toString(), true);
-    xhttp.send();
+            else {alert("Monto digitado no válido.");}
+    }
+    else{alert ("Debe de ingresar un número de telefono válido de 8 digitos para continuar. ");}
+
 }
 
 
