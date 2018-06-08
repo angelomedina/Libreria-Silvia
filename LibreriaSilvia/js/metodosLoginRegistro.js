@@ -41,9 +41,9 @@ function registroClientes() {
                                             if (value.toString() == 'Usuario agregado exitosamente') {
 
                                                 swal("Listo!", "Usuario agregado exitosamente!", "success")
-                                                    .then((value) = > {
+                                                    .then((value) => {
                                                     document.location.href = "../../vistas/login-registro/login.html";
-                                            });
+                                                });
 
                                             }
                                         }
@@ -67,10 +67,6 @@ function registroClientes() {
     }
     else{alert("Debe de ingresar su nombre para registrarse.");}
 }
-
-
-
-
 
 function login() {
 
@@ -145,15 +141,10 @@ function login() {
 
 }
 
-
-
-
-
-
 function siguienteVentana(json, tipo) {
 
     if(tipo == 'C'){
-        document.location.href = "../../vistas/cliente/pedido.php?json=" + json;
+        document.location.href = "../../vistas/cliente/pedido.html?json=" + json;
     }else{
         document.location.href = "../../vistas/administrador/main.html" ;
     }

@@ -44,6 +44,11 @@ if ($_GET['func']=='mostrarSolicitudesListas()'){
     mostrarSolicitudesListas();
 }
 
+if ($_GET['func']=='abrirLink()'){
+    abrirLink($_GET['id']);
+}
+
+
 function conexion(){
     $serverName = "localhost\sqlexpress,1433";
     $connectionInfo = array( "Database"=>"Nodo", "UID"=>"sa", "PWD"=>"deathnote");
@@ -142,9 +147,10 @@ function mostrarSolicitudes(){
     $conn = conexion();
     $result = array();
 
-    $sql = "select u.nombre, u.primerApellido,u.segundoApellido, u.correo,s.fecha, s.id,s.telefono,d.documento,s.cantidad,s.color,s.pagina,s.estado
-            from  solicitud as s inner join  documento as d on d.idSolicitud = s.id  
-            inner join [Central].dbo.usuario as u on s.telefono = u.telefono";
+    $sql = "select u.nombre, u.primerApellido,u.segundoApellido, u.correo,s.fecha, s.id,s.telefono,d.documento,s.cantidad,s.color,s.pagina,s.estado 
+            from  solicitud as s inner join  documento as d on d.idSolicitud = s.id   
+            inner join [Central].dbo.usuario as u on s.telefono = u.telefono  
+            where estado = 'T';";
     $stmt = sqlsrv_query( $conn, $sql );
 
     if($stmt === false) {
@@ -251,7 +257,7 @@ function getFecha(){
     $conn = conexion();
     $result = array();
 
-    $sql = " Select convert (varchar(10), getdate(),111) fecha from solicitud ";
+    $sql = " Select convert (varchar(7), getdate(),111) fecha from solicitud ";
     $stmt = sqlsrv_query( $conn, $sql );
 
     if($stmt === false) {
@@ -276,7 +282,7 @@ function getGrafico($fecha){
     $conn = conexion();
     $result = array();
 
-    $sql = "exec datosGrafico '$fecha',0 ,0,0,0";
+    $sql = "exec datosGrafico '2018/06/01',0 ,0,0,0";
     $stmt = sqlsrv_query( $conn, $sql );
 
     if($stmt === false) {
@@ -321,7 +327,10 @@ function mostrarSolicitudesListas(){
     $conn = conexion();
     $result = array();
 
-    $sql = "select id,telefono,fecha,montoCompra,cantidad,color,pagina,estado from solicitud where estado = 'F'";
+    $sql = "select u.nombre, u.primerApellido,u.segundoApellido, u.correo,s.fecha, s.id,s.telefono,d.documento,s.cantidad,s.color,s.pagina,s.estado 
+            from  solicitud as s inner join  documento as d on d.idSolicitud = s.id   
+            inner join [Central].dbo.usuario as u on s.telefono = u.telefono  
+            where estado = 'F'";
     $stmt = sqlsrv_query( $conn, $sql );
 
     if($stmt === false) {
@@ -341,3 +350,33 @@ function mostrarSolicitudesListas(){
         echo json_encode($result);
     }
 }
+
+function abrirLink($id){
+    $conn = conexion();
+    $result = array();
+
+    $sql = "select d.documento from  solicitud as s 
+            inner join  
+            documento as d on d.idSolicitud = s.id 
+            where s.id = '$id'";
+
+    $stmt = sqlsrv_query( $conn, $sql );
+
+    if($stmt === false) {
+        sqlsrv_close($conn);
+
+        $result[] = "Error: mostrar solicitud";
+        echo json_encode($result);
+    }
+    else {
+
+        do {
+            while ($row = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC)){
+                $result[] = $row;
+            }
+        }   while (sqlsrv_next_result($stmt));
+        sqlsrv_close($conn);
+        echo json_encode($result);
+    }
+}
+

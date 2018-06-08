@@ -10,11 +10,13 @@
     <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
     <script type="text/javascript">(function(){emailjs.init("user_OB7h697WzggGYQWKOk8NG");})();</script>
     <link   rel="stylesheet" href="../../css/stylesCliente.css">
+    <script src="https://www.gstatic.com/firebasejs/5.0.4/firebase.js"></script>
 
 
 </head>
-        <body background="../../css/fondos/6.jpg" style="background-repeat:no-repeat;background-position: 0px 115px;background-size: 100% 92%">
-        <div id="header">Librería Silvia</div>
+<body background="../../css/fondos/6.jpg" style="background-repeat:no-repeat;background-position: 0px 115px;background-size: 100% 92%" onload="desabilitarDocumentos()">
+
+<div id="header">Librería Silvia</div>
         <br><br><br><br><br><br>
 
 
@@ -25,10 +27,7 @@
                     <div class="card">
                         <div class="card-body">
 
-                            <form  action="../../php/subirArchivo.php"  method="post" enctype="multipart/form-data">
-                                <input style="margin-left: 25%;"  class="hidden" type="file" name="archivo" id="archivo"></input>
-                                <input style="margin-left: 2%;"   type="submit" value="Subir archivo"></input>
-                            </form>
+                            <input style="margin-left: 40%;"  accept=".pdf, .doc, .docx"type="file" id="campoarchivo"><br>
 
                             <h2 style="margin-left: 8%; ">Color</h2>
 
@@ -43,7 +42,7 @@
 
                             <form id="myForm">
                                 <h2 style="margin-left: 5%; ">Ingrese el documento</h2>
-                                <input type="text" id="documento">
+                                <input type="text" id="documento" name="documento">
 
                                 <h2 style="margin-left: 6%; ">Cantidad</h2>
                                 <input type="text" id="cantidad"><br>
@@ -63,3 +62,26 @@
         </div>
         </div>
 </body>
+
+<script>
+    // Initialize Firebase
+    var config = {
+        apiKey: "AIzaSyCdwTaqxwNTMFKONi0jmh7llDlDpqRxlto",
+        authDomain: "libreriasilvia-80df0.firebaseapp.com",
+        databaseURL: "https://libreriasilvia-80df0.firebaseio.com",
+        projectId: "libreriasilvia-80df0",
+        storageBucket: "libreriasilvia-80df0.appspot.com",
+        messagingSenderId: "1099037321832"
+    };
+    firebase.initializeApp(config);
+
+    // Servicios de APIs Firebase
+    var storageService = firebase.storage();
+
+    // asociamos el manejador de eventos sobre el INPUT FILE
+    document.getElementById('campoarchivo').addEventListener('change', function(evento){
+        evento.preventDefault();
+        var archivo  = evento.target.files[0];
+        subirArchivo(archivo);
+    });
+</script>

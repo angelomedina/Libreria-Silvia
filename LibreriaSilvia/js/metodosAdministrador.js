@@ -1,8 +1,6 @@
 google.charts.load("current", {packages:["corechart"]});
 google.charts.setOnLoadCallback(drawChart);
 
-var solicitudesJson;
-
 function activarVale() {
 
     var telefono = document.getElementById('telefono_recarga').value.toString();
@@ -56,7 +54,6 @@ function activarVale() {
 
 }
 
-
 function mostrarSolicitudes() {
 
     var xhttp = new XMLHttpRequest();
@@ -65,59 +62,22 @@ function mostrarSolicitudes() {
         if (this.readyState == 4 && this.status == 200) {
             if(this.statusText== "OK" && this.status == 200) {
 
-                //var response = this.response;
-                //var json     = JSON.parse(response);
+                var response = this.response;
+                var json     = JSON.parse(response);
 
-                solicitudesJson= [
-                    {
-                        "nombre":"Wilfred",
-                        "primerApellido":"Alvarado",
-                        "segundoApellido":"Maltez",
-                        "cantidad":1,
-                        "color":"B",
-                        "pagina":"12-45",
-                        "correo":"wilcr20@gmail.com",
-                        "telefono":"6098-0967",
-                        "fecha":{
-                            "date":"23-04-2018 12:34:01.123400"
-                        },
-                        "estado":"T",
-                        "id":1
-                    },
-                    {
-                        "nombre":"Carmen",
-                        "primerApellido":"Lyra",
-                        "segundoApellido":"Lyra",
-                        "cantidad":2,
-                        "color":"N",
-                        "pagina":"145-150",
-                        "correo":"lara@gmail.com",
-                        "telefono":"6100-0900",
-                        "fecha":{
-                            "date":"21-04-2018 10:34:01.123400"
-                        },
-                        "estado":"T",
-                        "id":2
-                    },
+                if(json.length > 0){
+                    rellenarTabla(json);
+                }else{
+                    swal({
+                        title: "Bandeja de entrada vacia!",
+                        text: "No dispone de pedidos",
+                        icon: "warning",
+                        button: "Ok!",
 
-                    {
-                        "nombre":"Lucia",
-                        "primerApellido":"Lyra",
-                        "segundoApellido":"Lyra",
-                        "cantidad":2,
-                        "color":"N",
-                        "pagina":"145-150",
-                        "correo":"lara@gamil.com",
-                        "telefono":"6100-0900",
-                        "fecha":{
-                            "date":"11-04-2018 18:00:01.123400"
-                        },
-                        "estado":"T",
-                        "id":3
-                    }
-                ]
-
-                verificaEstadoSolicitud(solicitudesJson);
+                    }).then((value) => {
+                        document.location.href = "../../vistas/administrador/main.html";
+                    });
+                }
             }
             else{console.log(this.statusText, this.status)}
         }
@@ -125,25 +85,6 @@ function mostrarSolicitudes() {
     xhttp.open("GET", "../../php/conn.php?func=mostrarSolicitudes()", true);
     xhttp.send();
 
-}
-
-function verificaEstadoSolicitud(json) {
-
-    for (var i = 0; i < json.length; i++){
-
-        var obj = json[i];
-        for (var key in obj){
-
-            var value = obj[key];
-
-            if(key == 'estado') {
-
-               if(value == 'T'){
-                   rellenarTabla(json);
-               }
-            }
-        }
-    }
 }
 
 function drawChart(json) {
@@ -260,8 +201,6 @@ function agregagrElementosSelect(fecha) {
             select.add(option);
 }
 
-
-
 function rellenarTabla(solicitudesJson) {
 
     var tabla = document.getElementById("tablaSolicitudes");
@@ -322,11 +261,11 @@ function rellenarTabla(solicitudesJson) {
         cell7.innerHTML= correo;
         cell8.innerHTML = telefono;
         cell9.innerHTML = fechaJson[0].replace(/['"]+/g, '');
-        cell10.innerHTML = '<a class="btn2" onclick="abrirDocumento()">Abrir</a>  <br><br>  <a class="btn2" onclick="pedidoListo(this)">Listo</a>'
+
+        cell10.innerHTML = '<a class="btn2" onclick="pedidoLink(this)">Abrir</a>  <br><br>  <a class="btn2" onclick="pedidoListo(this)">Listo</a>'
 
     }
 }
-
 
 function rellenarTablaSolicitudesListas(solicitudesJson) {
 
@@ -388,9 +327,6 @@ function rellenarTablaSolicitudesListas(solicitudesJson) {
     }
 }
 
-
-
-
 function pedidoListo(row) {
 
     var i = row.parentNode.parentNode.rowIndex;  // se consigue el indice de la fila a utilizar para conseguir los datos
@@ -432,7 +368,9 @@ function setFecha(){
     getGrafic(selected);
 }
 
-function getGrafic(fecha) {
+function getGrafic(pfecha) {
+
+    var fecha = pfecha.toString()+"/01";
 
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function () {
@@ -448,7 +386,7 @@ function getGrafic(fecha) {
             else{console.log(this.statusText, this.status)}
         }
     };
-    xhttp.open("GET", "../../php/conn.php?func=getGrafico()&fecha="+fecha.toString(), true);
+    xhttp.open("GET", "../../php/conn.php?func=getGrafico()&fecha="+fecha, true);
     xhttp.send();
 }
 
@@ -470,8 +408,6 @@ function estadoSolicitud(id){
     xhttp.send();
 }
 
-
-
 function mostrarSolicitudesListas() {
 
     var xhttp = new XMLHttpRequest();
@@ -480,74 +416,10 @@ function mostrarSolicitudesListas() {
         if (this.readyState == 4 && this.status == 200) {
             if(this.statusText== "OK" && this.status == 200) {
 
-                //console.log(this.response);
-                solicitudesJson= [
-                    {
-                        "nombre":"Wilfred",
-                        "primerApellido":"Alvarado",
-                        "segundoApellido":"Maltez",
-                        "cantidad":1,
-                        "color":"B",
-                        "pagina":"12-45",
-                        "correo":"wilcr20@gmail.com",
-                        "telefono":"6098-0967",
-                        "fecha":{
-                            "date":"23-04-2018 12:34:01.123400"
-                        },
-                        "estado":"F",
-                        "id":1
-                    },
-                    {
-                        "nombre":"Carmen",
-                        "primerApellido":"Lyra",
-                        "segundoApellido":"Lyra",
-                        "cantidad":2,
-                        "color":"N",
-                        "pagina":"145-150",
-                        "correo":"lara@gmail.com",
-                        "telefono":"6100-0900",
-                        "fecha":{
-                            "date":"21-04-2018 10:34:01.123400"
-                        },
-                        "estado":"F",
-                        "id":2
-                    },
+                var arr = this.response;
+                var json = JSON.parse(arr);
 
-                    {
-                        "nombre":"Lucia",
-                        "primerApellido":"Lyra",
-                        "segundoApellido":"Lyra",
-                        "cantidad":2,
-                        "color":"N",
-                        "pagina":"145-150",
-                        "correo":"lara@gmmil.com",
-                        "telefono":"6100-0900",
-                        "fecha":{
-                            "date":"11-04-2018 18:00:01.123400"
-                        },
-                        "estado":"F",
-                        "id":3
-                    },
-
-
-                    {
-                        "nombre":"Marco",
-                        "primerApellido":"Esquivel",
-                        "segundoApellido":"Vargas",
-                        "cantidad":1,
-                        "color":"N",
-                        "pagina":"115-190",
-                        "correo":"wilrex@gmmil.com",
-                        "telefono":"6101-9940",
-                        "fecha":{
-                            "date":"18-06-2018 18:00:01.123400"
-                        },
-                        "estado":"F",
-                        "id":4
-                    }
-                ]
-
-                rellenarTablaSolicitudesListas(solicitudesJson);
+                rellenarTablaSolicitudesListas(json);
 
             }
             else{console.log(this.statusText, this.status)}
@@ -557,3 +429,53 @@ function mostrarSolicitudesListas() {
     xhttp.send();
 
 }
+
+function mostrarLink(id) {
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function () {
+
+        if (this.readyState == 4 && this.status == 200) {
+            if(this.statusText== "OK" && this.status == 200) {
+
+                var arr = this.response;
+                var json = JSON.parse(arr);
+
+                for (var i = 0; i < json.length; i++){
+
+                    var obj = json[i];
+                    for (var key in obj){
+
+                        var value = obj[key];
+
+                        var link = hexToString (value.toString());
+                        document.location.href = link;
+                    }
+                }
+
+
+            }
+            else{console.log(this.statusText, this.status)}
+        }
+    };
+    xhttp.open("GET", "../../php/conn.php?func=abrirLink()&id="+id.toString(), true);
+    xhttp.send();
+}
+
+function pedidoLink(row) {
+
+    var i = row.parentNode.parentNode.rowIndex;  // se consigue el indice de la fila a utilizar para conseguir los datos
+
+    var id= document.getElementById("tablaSolicitudes").rows[i].cells[0].innerText;
+    mostrarLink(id);
+
+
+}
+
+function hexToString (hex) {
+    var string = '';
+    for (var i = 0; i < hex.length; i += 2) {
+        string += String.fromCharCode(parseInt(hex.substr(i, 2), 16));
+    }
+    return string;
+}
+

@@ -23,7 +23,7 @@ function sigVentanaSaldo() {
 
 function sigVentanaPedido() {
     obtenerParametros();
-    document.location.href = "../../vistas/cliente/pedido.php?json=" + telefono;
+    document.location.href = "../../vistas/cliente/pedido.html?json=" + telefono;
 }
 
 function formularioPedido() {
@@ -105,9 +105,9 @@ function saldo() {
 
 }
 
-function realizarPedido(color,documento,cantidad,paginas,montoDOC,telefono) {
+function realizarPedido(color,pdocumento,cantidad,paginas,montoDOC,telefono) {
 
-
+    var documento = encodeToHex(pdocumento);
 
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function () {
@@ -189,6 +189,7 @@ function comprobanteCorreo(monto,cantidad,color,paginas,nombre,correo) {
 
     emailjs.send(service_id,template_id,params)
         .then(function(){
+            document.getElementById("myForm").reset();
         }, function(err) {
             alert("Send email failed!\r\n Response:\n " + JSON.stringify(err));
         });
@@ -199,5 +200,51 @@ function cancelar() {
     document.getElementById("myForm").reset();
 }
 
+function encodeToHex(str) {
+    var result = "";
+    for (var i = 0; i < str.length; i++) {
+        result += str.charCodeAt(i).toString(16);
+    }
+    return result;
+}
 
+// función que se encargará de subir el archivo
+function subirArchivo(archivo) {
+
+    // creo una referencia al lugar donde guardaremos el archivo
+    var refStorage = storageService.ref('pdf/').child(archivo.name);
+    // Comienzo la tarea de upload
+    var uploadTask = refStorage.put(archivo);
+
+    // defino un evento para saber qué pasa con ese upload iniciado
+    uploadTask.on('state_changed', null,
+        function(error){
+            console.log('Error al subir el archivo', error);
+        },
+        function(){
+            uploadTask.snapshot.ref.getDownloadURL().then(function(downloadURL) {
+                mensajeFinalizado(downloadURL)
+            })
+        }
+    );
+}
+
+// a esta función la invocamos para mostrar el mensaje final después del upload
+function mensajeFinalizado(url) {
+
+    $("#documento").val(url);
+    document.getElementById("documento").disabled = true;
+
+    /*
+     var elMensaje = document.getElementById('mensaje');
+     var textoMensaje = '<p>Subido el archivo!';
+     textoMensaje += '<br>Bytes subidos: ' + bytes;
+     textoMensaje += '<br><a href="' + url + '">Ver el fichero</a></p>';
+     elMensaje.innerHTML = textoMensaje;
+     */
+}
+
+function desabilitarDocumentos() {
+    document.getElementById("documento").disabled = true;
+}
 
