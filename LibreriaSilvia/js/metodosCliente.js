@@ -105,8 +105,10 @@ function saldo() {
 
 }
 
-function realizarPedido(color,pdocumento,cantidad,paginas,montoDOC,telefono) {
 
+function realizarPedido(color,pdocumento,cantidad,paginas,montoDOC,telefono) {
+    console.log("entra");
+    var spinner = document.getElementById("spinnerC").style.visibility = "visible"; // empieza mostrando el spinner
     var documento = encodeToHex(pdocumento);
 
     var xhttp = new XMLHttpRequest();
@@ -131,6 +133,7 @@ function realizarPedido(color,pdocumento,cantidad,paginas,montoDOC,telefono) {
 
 
                         if(value.toString() == 'Pedido agregado exitosamente') {
+                            var spinner = document.getElementById("spinnerC").style.visibility = "hidden"; // oculta el spinner
                             comprobanteCorreo(montoDOC.toString(),cantidad,color,paginas,nombre,correo);
                         }
                     }
@@ -176,6 +179,9 @@ function infoUsuario(telefono) {
 }
 
 function comprobanteCorreo(monto,cantidad,color,paginas,nombre,correo) {
+
+    emailjs.init("user_OB7h697WzggGYQWKOk8NG");
+
     var service_id = "default_service";
     var template_id = "facturasilvia";
 
@@ -187,14 +193,53 @@ function comprobanteCorreo(monto,cantidad,color,paginas,nombre,correo) {
 
     var params = {"monto":monto,"correo":correo,"fecha":fecha,"nombre":nombre,"cantidad":cantidad,"color":color,"paginas":paginas}
 
+    var spinner = document.getElementById("spinnerC").style.visibility = "visible"; // empieza mostrando el spinner
+
     emailjs.send(service_id,template_id,params)
         .then(function(){
             document.getElementById("myForm").reset();
+            var spinner = document.getElementById("spinnerC").style.visibility = "hidden"; // si el correo se envia, oculta spiiner
+            comprobanteCorreoAdmi(monto,cantidad,color,paginas,nombre); // llama funcion para enviar comprobante a admin
         }, function(err) {
             alert("Send email failed!\r\n Response:\n " + JSON.stringify(err));
         });
     return false;
 }
+
+
+function comprobanteCorreoAdmi(monto,cantidad,color,paginas,nombre) {
+
+    emailjs.init("user_2ssqhTS88pnM0maU686SO");
+
+    var service_id = "default_service";
+    var template_id = "informeadminp";
+
+    if(color == 'B'){color="a color";}
+    if(color == 'N'){color="blanco y negro";}
+
+    var date  = new Date();
+    var fecha = date.getDate() + "/" + (date.getMonth() +1) + "/" + date.getFullYear();
+
+    var spinner = document.getElementById("spinnerC").style.visibility = "visible"; // empieza mostrando el spinner
+    var params = {"monto":monto,"correo":"wilcr20@gmail.com","fecha":fecha,"nombre":nombre,"cantidad":cantidad,"color":color,"paginas":paginas}
+
+    emailjs.send(service_id,template_id,params)
+        .then(function(){
+            document.getElementById("myForm").reset();
+            var spinner = document.getElementById("spinnerC").style.visibility = "hidden"; // si el correo se envia correctamente, se oculta spinner
+
+            swal("Se ha enviado un comprobante de compra a tu correo electronico");
+
+        }, function(err) {
+            alert("Send email failed!\r\n Response:\n " + JSON.stringify(err));
+        });
+    return false;
+}
+
+
+
+
+
 
 function cancelar() {
     document.getElementById("myForm").reset();

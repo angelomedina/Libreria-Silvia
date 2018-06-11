@@ -1,6 +1,8 @@
 
 
 function registroClientes() {
+    console.log("ENTRA");
+    var spinner = document.getElementById("spinnerC").style.visibility = "visible"; // empieza mostrando el spinner
 
     var telefono = document.getElementById('telefono_registro').value.toString();
     var nombre = document.getElementById('nombre_registro').value.toString();
@@ -44,6 +46,8 @@ function registroClientes() {
                                                     .then((value) => {
                                                     document.location.href = "../../vistas/login-registro/login.html";
                                                 });
+                                                var spinner = document.getElementById("spinnerC").style.visibility = "hidden";
+                                                // oculta el spiner si el usuario se agrega coorectamente
 
                                             }
                                         }
@@ -51,6 +55,7 @@ function registroClientes() {
                                 }
                                 else {
                                     console.log(this.statusText, this.status)
+                                    var spinner = document.getElementById("spinnerC").style.visibility = "hidden";
                                 }
                             }
                         };
@@ -69,6 +74,8 @@ function registroClientes() {
 }
 
 function login() {
+
+    var spinner = document.getElementById("spinnerC").style.visibility = "visible"; // empieza mostrando el spinner
 
     var telefono = document.getElementById('usuario_login').value.toString();
     var contraseña = document.getElementById('contraseña_login').value.toString();
@@ -109,9 +116,11 @@ function login() {
 
                                         if (value.toString() == 'C') {
                                             //cliente
+                                            var spinner = document.getElementById("spinnerC").style.visibility = "hidden"; // oculta el spinner
                                             siguienteVentana(ptelefono, 'C');
                                         } else {
                                             //admi
+                                            var spinner = document.getElementById("spinnerC").style.visibility = "hidden"; // oculta el spinner
                                             siguienteVentana(ptelefono, 'A');
                                         }
                                     }

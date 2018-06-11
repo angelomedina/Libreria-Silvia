@@ -1,6 +1,7 @@
 google.charts.load("current", {packages:["corechart"]});
 google.charts.setOnLoadCallback(drawChart);
 
+
 function activarVale() {
 
     var telefono = document.getElementById('telefono_recarga').value.toString();
@@ -54,6 +55,7 @@ function activarVale() {
 
 }
 
+
 function mostrarSolicitudes() {
 
     var xhttp = new XMLHttpRequest();
@@ -61,9 +63,9 @@ function mostrarSolicitudes() {
 
         if (this.readyState == 4 && this.status == 200) {
             if(this.statusText== "OK" && this.status == 200) {
-
                 var response = this.response;
                 var json     = JSON.parse(response);
+
 
                 if(json.length > 0){
                     rellenarTabla(json);
@@ -160,6 +162,7 @@ function drawChart(json) {
         chart.draw(data, options);
     }
 }
+
 
 function getFecha() {
 
@@ -262,10 +265,12 @@ function rellenarTabla(solicitudesJson) {
         cell8.innerHTML = telefono;
         cell9.innerHTML = fechaJson[0].replace(/['"]+/g, '');
 
-        cell10.innerHTML = '<a class="btn2" onclick="pedidoLink(this)">Abrir</a>  <br><br>  <a class="btn2" onclick="pedidoListo(this)">Listo</a>'
+        cell10.innerHTML = '<a class="btn2"  onclick="pedidoLink(this)">Abrir</a>  <br><br>  <a class="btn2" onclick="pedidoListo(this)">Listo</a>'
 
     }
 }
+
+
 
 function rellenarTablaSolicitudesListas(solicitudesJson) {
 
@@ -325,6 +330,7 @@ function rellenarTablaSolicitudesListas(solicitudesJson) {
         cell8.innerHTML = fechaJson[0].replace(/['"]+/g, '');
 
     }
+    var spinner = document.getElementById("spinnerC").style.visibility = "hidden"; // oculta el spinner al terminar de setear en tabla
 }
 
 function pedidoListo(row) {
@@ -345,22 +351,34 @@ function pedidoListo(row) {
 
     var params = {"to_email":correo,"nombre":nombre,"fecha":fecha}
 
-    emailjs.send(service_id,template_id,params)
-        .then(function(){
+    var spinner; // variable para setesar el spinner
 
-            estadoSolicitud(id);  // recibe ID de solicitud .....
+    spinner = document.getElementById("spinner").style.visibility = "visible"; // empieza mostrando el spinner
 
-            swal({
-                title: "Correo de confimación listo!",
-                text: "Destinatario: "+correo,
-                icon: "success",
-                button: "Ok!",
+        emailjs.send(service_id, template_id, params)
+            .then(function () {
+
+                estadoSolicitud(id);  // recibe ID de solicitud .....
+                swal({
+
+                    title: "Correo de confimación listo!",
+                    text: "Destinatario: " + correo,
+                    icon: "success",
+                    button: "Ok!",
+                });
+                spinner = document.getElementById("spinner").style.visibility = "hidden"; // si se envia el correo de manera exitosa
+                                                                                            // el spinner se oculta
+            }, function (err) {
+                alert("Send email failed!\r\n Response:\n " + JSON.stringify(err));
             });
-        }, function(err) {
-            alert("Send email failed!\r\n Response:\n " + JSON.stringify(err));
-        });
-    return false;
+
+
+        return false;
+
+
 }
+
+
 
 function setFecha(){
     var combo    = document.getElementById("Fecha");
@@ -408,8 +426,9 @@ function estadoSolicitud(id){
     xhttp.send();
 }
 
-function mostrarSolicitudesListas() {
 
+function mostrarSolicitudesListas() {
+    var spinner = document.getElementById("spinnerC").style.visibility = "visible"; // empieza mostrando el spinner
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function () {
 
@@ -420,7 +439,6 @@ function mostrarSolicitudesListas() {
                 var json = JSON.parse(arr);
 
                 rellenarTablaSolicitudesListas(json);
-
             }
             else{console.log(this.statusText, this.status)}
         }
